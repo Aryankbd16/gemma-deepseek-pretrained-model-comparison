@@ -1,0 +1,77 @@
+[
+  {
+    "id": "LR02",
+    "runs": [
+      {
+        "seed": 0,
+        "extracted": "no",
+        "correct": false,
+        "new_tokens": 19
+      },
+      {
+        "seed": 1,
+        "extracted": "no",
+        "correct": false,
+        "new_tokens": 19
+      },
+      {
+        "seed": 2,
+        "extracted": "no",
+        "correct": false,
+        "new_tokens": 19
+      }
+    ],
+    "n_distinct_answers": 1,
+    "all_correct": false
+  },
+  {
+    "id": "MR01",
+    "runs": [
+      {
+        "seed": 0,
+        "extracted": "36",
+        "correct": true,
+        "new_tokens": 41
+      },
+      {
+        "seed": 1,
+        "extracted": "36",
+        "correct": true,
+        "new_tokens": 41
+      },
+      {
+        "seed": 2,
+        "extracted": "36",
+        "correct": true,
+        "new_tokens": 41
+      }
+    ],
+    "n_distinct_answers": 1,
+    "all_correct": true
+  },
+  {
+    "id": "MS02",
+    "runs": [
+      {
+        "seed": 0,
+        "extracted": "36",
+        "correct": false,
+        "new_tokens": 139
+      },
+      {
+        "seed": 1,
+        "extracted": "36",
+        "correct": false,
+        "new_tokens": 139
+      },
+      {
+        "seed": 2,
+        "extracted": "36",
+        "correct": false,
+        "new_tokens": 139
+      }
+    ],
+    "n_distinct_answers": 1,
+    "all_correct": false
+  }
+]

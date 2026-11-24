@@ -1,0 +1,81 @@
+id,category,prompt,final_output,seconds,new_tokens,tokens_per_sec,hit_max_tokens,correct,extracted,observation
+GK03,general_knowledge,"In which year did the Chernobyl nuclear power plant accident occur? Answer with just the name or number, no explanation.",Chernobyl Nuclear Power Plant accident occurred in 1986.,0.5325319179999042,16,30.045147453495698,False,True,Chernobyl Nuclear Power Plant accident occurred in 1986.,PASS; 16 new tokens; 0.5s
+IF03,instruction_following,Write exactly two sentences explaining why sleep is important. Do not use the word 'health' (or any word containing it).,"Sleep is crucial for restoring and repairing the body's tissues and organs, ensuring optimal cognitive function and overall well-being.",1.4063063630001125,26,18.488147877346922,False,False,"Sleep is crucial for restoring and repairing the body's tissues and organs, ensuring optimal cognitive function and overall well-being.","FAIL; 26 new tokens; 1.4s; extracted=""Sleep is crucial for restoring and repairing the body's tiss"""
+LR03,logical_reasoning,"All doctors in the clinic are tall. Priya is tall. Is Priya definitely a doctor in the clinic? Answer 'Yes' or 'No' first, then explain in one sentence.","No. Priya is not a doctor in the clinic, as she is not a medical professional.",1.0170537860001332,20,19.664643380028064,False,True,no,PASS; 20 new tokens; 1.0s
+MR03,mathematical_reasoning,"A train travels 180 km in 2.5 hours. What is its average speed in km/h? Think step by step, then end with a line of the form 'Final answer: <number>'.","To calculate the average speed of the train in km/h, we can use the formula:
+
+**Average speed = Distance travelled / Time taken**
+
+In this case, the distance travelled is 180 km, and the time taken is 2.5 hours. Therefore, the average speed of the train in km/h is:
+
+**Average speed = 180 km / 2.5 h = 72 km/h**
+
+**Final answer: 72**",3.3841915610000797,104,30.73112089708847,False,True,72,PASS; 104 new tokens; 3.4s
+MS03,multi_step,"A tank holds 600 litres and is 40% full. A pipe adds 25 litres per minute. How many minutes until the tank is completely full? Think step by step, then end with a line of the form 'Final answer: <number>'.","**Step 1**: Calculate the amount of water added in 1 minute. 25 litres per minute x 60 minutes = 1500 litres per minute.
+
+**Step 2**: Calculate the time taken to fill the tank. 600 litres / 1500 litres/minute = 0.4 hours.
+
+**Step 3**: Convert hours to minutes. 0.4 hours x 60 minutes/hour = 24 minutes.
+
+**Final answer: 24**",2.927993323999999,112,38.251453335622436,False,False,24,FAIL; 112 new tokens; 2.9s; extracted='24'
+SU03,summarization,"Summarize the following passage in one sentence of at most 25 words.
+
+Passage: Cities are often several degrees warmer than the countryside around them, an effect called the urban heat island. Dark roads and roofs absorb sunlight, concrete stores heat overnight, and there are fewer trees to provide shade and cool the air through evaporation. Planting trees, installing reflective roofs and adding green spaces can reduce the effect and lower summer energy use.","Sure, here's a summary in one sentence:
+
+Cities experience higher temperatures due to factors like dark surfaces, concrete, and limited vegetation, leading to increased energy consumption.",0.9631236319999061,36,37.37837885386194,False,False,"Sure, here's a summary in one sentence:
+
+Cities experience higher temperatures due to factors like dark surfaces, concrete, and limited vegetation, leading to increased energy consumption.","FAIL; 36 new tokens; 1.0s; extracted=""Sure, here's a summary in one sentence:\n\nCities experience h"""
+CO03,coding,"Write a Python function `second_largest(nums)` that returns the second largest DISTINCT value in a list of integers, or None if there are fewer than two distinct values. Return only the code in one ```python block.","```python
+def second_largest(nums):
+  """"""
+  Returns the second largest distinct value in a list of integers.
+
+  Args:
+    nums: A list of integers.
+
+  Returns:
+    The second largest distinct value in the list, or None if there are fewer than two distinct values.
+  """"""
+
+  # Remove duplicate elements from the list.
+  unique_nums = list(set(nums))
+
+  # Return the second largest value in the list.
+  return max(unique_nums[-2:])
+```",3.6090951129999667,117,32.41809825919129,False,False,"def second_largest(nums):
+  """"""
+  Returns the second largest distinct value in a list of integers.
+
+  Args:
+    nums: A list of integers.
+
+  Returns:
+    The second largest distinct value in the list, or None if there are fewer than two distinct values.
+  """"""
+
+  # Remove duplicate elements from the ","FAIL; 117 new tokens; 3.6s; extracted='def second_largest(nums):\n  """"""\n  Returns the second largest'"
+AN03,analytical,"Dataset: 4, 8, 6, 5, 3, 9, 100. Is the mean or the median more representative of the typical value, and why? State the median value.","The median is more representative of the typical value than the mean. The median is the middle value in the dataset when arranged in order from smallest to largest. In this case, the median is 5, which is the middle value in the dataset. The mean, on the other hand, is the average of all the values in the dataset, which is (4 + 8 + 6 + 5 + 3 + 9 + 100) / 8 = 55.
+
+Therefore, the median value is more representative of the typical value of the dataset, as it is the middle value in the dataset.",3.3763228349998826,130,38.50342705750308,False,True,"The median is more representative of the typical value than the mean. The median is the middle value in the dataset when arranged in order from smallest to largest. In this case, the median is 5, whic",PASS; 130 new tokens; 3.4s
+JS03,structured_output,"Produce a Markdown table with the columns Item, Qty, Price for: Pen 10 5; Book 2 120; Bag 1 450. Output only the table.","| Item | Qty | Price |
+|---|---|---|
+| Pen | 10 | Not Provided |
+| Book | 2 | 120 |
+| Bag | 1 | 450 |",1.2257250870000007,47,38.34465044281171,False,False,"| Item | Qty | Price |
+|---|---|---|
+| Pen | 10 | Not Provided |
+| Book | 2 | 120 |
+| Bag | 1 | 450 |",FAIL; 47 new tokens; 1.2s; extracted='| Item | Qty | Price |\n|---|---|---|\n| Pen | 10 | Not Provid'
+AM03,ambiguous_misleading,"A bat and a ball cost 1.10 dollars in total. The bat costs 1.00 dollar more than the ball. How much does the ball cost, in cents? Think step by step, then end with a line of the form 'Final answer: <number of cents>'.","Let x be the price of the ball in cents.
+
+Then the bat costs x + 1.00.
+
+The total cost is 1.10, so we have:
+
+x + 1.00 = 1.10
+
+Subtracting 1.00 from both sides:
+
+x = 0.10
+
+Therefore, the ball costs 0.10 cents.",2.268602881000106,88,38.79039418358029,False,False,0.1,FAIL; 88 new tokens; 2.3s; extracted='0.1'

@@ -1,0 +1,13 @@
+# Colab already ships torch; the notebooks pip-install what they need. Local use:
+torch
+transformers
+accelerate
+bitsandbytes   # 4/8-bit loading (Linux + CUDA only)
+huggingface_hub
+sentencepiece
+numpy
+pandas
+matplotlib
+openpyxl       # Experimental_Results.xlsx
+reportlab      # Shared/build_reports.py (PDF generation)
+pypdf          # optional, page counts

@@ -1,0 +1,162 @@
+id,category,prompt,final_output,seconds,new_tokens,tokens_per_sec,hit_max_tokens,correct,extracted,observation
+R1a,robustness,What is the capital of Australia? Answer with just the city name.,The capital city of Australia is Canberra. It is the seat of government and is located in the Australian Capital Territory.,0.6574856580000414,24,36.502697371382794,False,True,The capital city of Australia is Canberra. It is the seat of government and is located in the Australian Capital Territory.,PASS; 24 new tokens; 0.7s
+R1b,robustness,Name Australia's capital city.,The capital city of Australia is Canberra. It is the seat of the Australian government and is located in the Australian Capital Territory.,0.6742896970001766,26,38.559094281983654,False,True,The capital city of Australia is Canberra. It is the seat of the Australian government and is located in the Australian Capital Territory.,PASS; 26 new tokens; 0.7s
+R1c,robustness,I forgot: which city serves as the seat of government of Australia? One word please.,"Canberra.
+
+Canberra is the capital city of Australia and serves as the seat of government.",0.5527635509999982,21,37.990927516854434,False,True,"Canberra.
+
+Canberra is the capital city of Australia and serves as the seat of government.",PASS; 21 new tokens; 0.6s
+R1d,robustness,australia capital??,The capital of Australia is Canberra. It is the seat of government and is located in the Australian Capital Territory. Canberra is also the largest city in Australia and is known for its beautiful scenery and climate.,1.1136417990001064,41,36.816146840763544,False,True,The capital of Australia is Canberra. It is the seat of government and is located in the Australian Capital Territory. Canberra is also the largest city in Australia and is known for its beautiful sce,PASS; 41 new tokens; 1.1s
+R1e,robustness,"Could you kindly tell me, in a full sentence, what the capital of Australia is?","The capital of Australia is Canberra, located in the Australian Capital Territory.",0.4684658920000402,15,32.01940686857671,False,True,"The capital of Australia is Canberra, located in the Australian Capital Territory.",PASS; 15 new tokens; 0.5s
+R1f,robustness,"What is 15% of 240? Think step by step, then end with a line of the form 'Final answer: <number>'.","Sure, here's the solution:
+
+15% of 240 = (0.15) * 240 = 36
+
+Final answer: 36",1.2748852039999292,41,32.159758283618984,False,True,36,PASS; 41 new tokens; 1.3s
+R1g,robustness,"Calculate fifteen percent of two hundred forty. Think step by step, then end with a line of the form 'Final answer: <number>'.","Sure, here's the calculation:
+
+Step 1: Find 204 x 0.15.
+
+204 x 0.15 = 32
+
+Therefore, 15% of 204 is 32.",2.0481834370000342,57,27.829538590297197,False,False,32,FAIL; 57 new tokens; 2.0s; extracted='32'
+R1h,robustness,"If you take 240 and find 15 percent of it, what do you get? Think step by step, then end with a line of the form 'Final answer: <number>'.","Sure, here's the solution:
+
+Step 1: Calculate 240 x 0.15 = 36
+
+Therefore, 15 percent of 240 is 36.",1.1963889240000753,46,38.449035323898656,False,True,36,PASS; 46 new tokens; 1.2s
+R2a,robustness,"Ravi has 12 apples. He buys 8 more. How many apples does he have? Think step by step, then end with a line of the form 'Final answer: <number>'.","**Step 1:** Start with the initial number of apples Ravi has, which is 12.
+
+**Step 2:** Add 8 to the initial number of apples.
+
+**Final answer: 12 + 8 = 20**",1.4082203410000602,54,38.34627183530911,False,False,12,FAIL; 54 new tokens; 1.4s; extracted='12'
+R2b,robustness,"Ravi has 12 apples. He buys 8 more and then gives 5 away. How many apples does he have? Think step by step, then end with a line of the form 'Final answer: <number>'.","**Step 1:** Ravi starts with 12 apples.
+
+**Step 2:** He buys 8 more apples, so he has 12 + 8 = 20 apples.
+
+**Step 3:** He then gives 5 apples away, so he has 20 - 5 = 15 apples.
+
+**Final answer: 15**",2.081026114999986,80,38.442573797302174,False,True,15,PASS; 80 new tokens; 2.1s
+R2c,robustness,"Ravi has 12 apples. He buys 8 more, gives 5 away, then triples what he has left. How many apples does he have? Think step by step, then end with a line of the form 'Final answer: <number>'.","**Step 1:** Ravi starts with 12 apples.
+
+**Step 2:** He buys 8 more, so he has 12 + 8 = 20 apples.
+
+**Step 3:** He gives 5 away, so he has 20 - 5 = 15 apples.
+
+**Step 4:** He triples what he has left, so he has 15 x 3 = 45 apples.
+
+**Final answer: 45**",2.7807066630000463,105,37.76018571003016,False,True,45,PASS; 105 new tokens; 2.8s
+R2d,robustness,"Ravi has 12 apples. He buys 8 more, gives 5 away, triples what he has left, eats 5, and finally shares the rest equally among himself and 3 friends (4 people in total). How many apples does each person get? Think step by step, then end with a line of the form 'Final answer: <number>'.","**Step 1:** Ravi starts with 12 apples.
+
+**Step 2:** He buys 8 more apples, so he has 12 + 8 = 20 apples.
+
+**Step 3:** He gives 5 away, so he has 20 - 5 = 15 apples.
+
+**Step 4:** He triples what he has left, so he has 15 x 3 = 45 apples.
+
+**Step 5:** He eats 5 apples, so he has 45 - 5 = 40 apples.
+
+**Step 6:** He shares the rest equally among himself and 3 friends, so each person gets 4 apples.
+
+**Final answer: 4**",4.654505371000141,158,33.94560482933756,False,False,4,FAIL; 158 new tokens; 4.7s; extracted='4'
+R3a,robustness,Make it shorter.,"Sure, I can help make it shorter. Just provide the text you would like me to condense and I will do my best to make it shorter while maintaining the meaning.",0.9196155239999371,35,38.05938360823321,False,False,"Sure, I can help make it shorter. Just provide the text you would like me to condense and I will do my best to make it shorter while maintaining the meaning.","FAIL; 35 new tokens; 0.9s; extracted='Sure, I can help make it shorter. Just provide the text you '"
+R3b,robustness,Is it safe to eat?,I am unable to provide medical advice or endorse the consumption of food or beverages. I recommend that you seek the guidance of a healthcare professional or registered dietitian for any questions or concerns you may have regarding your health and dietary needs.,1.2430741340001532,47,37.80949077329463,False,False,I am unable to provide medical advice or endorse the consumption of food or beverages. I recommend that you seek the guidance of a healthcare professional or registered dietitian for any questions or ,FAIL; 47 new tokens; 1.2s; extracted='I am unable to provide medical advice or endorse the consump'
+R3c,robustness,Convert 100 to the right units.,100 to the right units would be in the **centimeter (cm)** measurement.,0.5364634889999707,20,37.28119510478204,False,False,100 to the right units would be in the **centimeter (cm)** measurement.,FAIL; 20 new tokens; 0.5s; extracted='100 to the right units would be in the **centimeter (cm)** m'
+R3d,robustness,Translate this into the usual language.,"I am unable to translate the context you have provided into the usual language, as I do not have access to the context.",0.6912873419998959,26,37.61098810920208,False,False,"I am unable to translate the context you have provided into the usual language, as I do not have access to the context.",FAIL; 26 new tokens; 0.7s; extracted='I am unable to translate the context you have provided into '
+R4a,robustness,"What is 48 + 27? Think step by step, then end with a line of the form 'Final answer: <number>'.","Sure, here's the step-by-step solution:
+
+48 + 27 = 75
+
+Final answer: 75",0.8561640840000564,32,37.376013077416005,False,True,75,PASS; 32 new tokens; 0.9s
+R4b,robustness,"What is 17 multiplied by 23? Think step by step, then end with a line of the form 'Final answer: <number>'.","Sure, here's the step-by-step solution:
+
+17 multiplied by 23 is:
+
+17 x 23 = 401
+
+Therefore, the final answer is 401.",1.2678105810000488,48,37.86054535223835,False,False,401,FAIL; 48 new tokens; 1.3s; extracted='401'
+R4c,robustness,"Solve for x: 5x - 9 = 26. Think step by step, then end with a line of the form 'Final answer: <number>'.","5x - 9 = 26
+
+5x = 26 + 9
+
+5x = 35
+
+x = 7",0.8661525129998608,32,36.94499469749289,False,True,7,PASS; 32 new tokens; 0.9s
+R4d,robustness,"What is the sum of the roots of x^2 - 9x + 14 = 0? Think step by step, then end with a line of the form 'Final answer: <number>'.","$$x = \frac{-(-9) \pm \sqrt{(-9)^2 - 4(1)(14)}}{2(1)}$$
+
+$$x = \frac{9 \pm \sqrt{81 - 56}}{2}$$
+
+$$x = \frac{9 \pm \sqrt{25}}{2}$$
+
+$$x = \frac{9 \pm 5}{2}$$
+
+The roots are:
+
+$$x = 5 \text{ and } x = 7$$
+
+Therefore, the sum of the roots is:
+
+$$5 + 7 = 12$$",3.6316044089999195,129,35.521490083090946,False,False,12,FAIL; 129 new tokens; 3.6s; extracted='12'
+R4e,robustness,"12000 rupees are invested at 10% interest per year, compounded annually. What is the total amount after 2 years, in rupees? Think step by step, then end with a line of the form 'Final answer: <number>'.","**Step 1: Calculate the interest earned per year.**
+
+Interest = Principal amount * Interest rate
+Interest = 12000 * 10% = 1200
+
+**Step 2: Calculate the total amount after 2 years.**
+
+Total amount = Principal amount + Interest
+Total amount = 12000 + 1200
+Total amount = 13200
+
+**Final answer: 13200**",3.0605689630001507,102,33.3271366314888,False,False,13200,FAIL; 102 new tokens; 3.1s; extracted='13200'
+R5a,robustness,"Return a JSON object with keys name, age, city for Meera, 28, Pune (age as an integer). Output only the JSON.","```json
+{
+  ""name"": ""Meera"",
+  ""age"": 28,
+  ""city"": ""Pune""
+}
+```",0.9325405419999697,35,37.53188030295967,False,True,"```json
+{
+  ""name"": ""Meera"",
+  ""age"": 28,
+  ""city"": ""Pune""
+}
+```",PASS; 35 new tokens; 0.9s
+R5b,robustness,"Return a JSON array containing exactly one object with keys name, age, city for Meera, 28, Pune (age as an integer). Output only the JSON.","```json
+{
+  ""name"": ""Meera"",
+  ""age"": 28,
+  ""city"": ""Pune""
+}
+```",0.9717056219999449,35,36.01913913800736,False,False,"```json
+{
+  ""name"": ""Meera"",
+  ""age"": 28,
+  ""city"": ""Pune""
+}
+```","FAIL; 35 new tokens; 1.0s; extracted='```json\n{\n  ""name"": ""Meera"",\n  ""age"": 28,\n  ""city"": ""Pune""\n}'"
+R5c,robustness,"Return CSV with the header name,age,city and one data row for Meera, 28, Pune. Output only the CSV.","Meera,28,Pune
+
+Here is the CSV with the header name, age, city and one data row for Meera:
+
+```
+header,age,city
+Meera,28,Pune
+```",1.3024397110000336,47,36.08612329849238,False,False,"Meera,28,Pune
+
+Here is the CSV with the header name, age, city and one data row for Meera:
+
+```
+header,age,city
+Meera,28,Pune
+```","FAIL; 47 new tokens; 1.3s; extracted='Meera,28,Pune\n\nHere is the CSV with the header name, age, ci'"
+R5d,robustness,"Return a Markdown table with columns name, age, city and one row for Meera, 28, Pune. Output only the table.","| Name | Age | City |
+|---|---|---|
+| Meera | 28 | Pune |",0.625736803999871,23,36.75666806391772,False,True,"| Name | Age | City |
+|---|---|---|
+| Meera | 28 | Pune |",PASS; 23 new tokens; 0.6s
+R5e,robustness,"Return exactly three lines of the form 'key: value' with keys name, age, city for Meera, 28, Pune. Output only those lines.","name: Meera
+age: 28
+city: Pune",0.4135735659999682,15,36.269242604352414,False,True,"name: Meera
+age: 28
+city: Pune",PASS; 15 new tokens; 0.4s

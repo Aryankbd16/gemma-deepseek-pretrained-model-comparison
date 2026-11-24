@@ -1,0 +1,53 @@
+{
+ "model_key": "G19",
+ "checkpoint": "google/gemma-2b-it",
+ "display_name": "Gemma 1.0 2B-IT",
+ "precision": "fp16",
+ "quick_run": false,
+ "run_utc": "2026-11-19T05:50:32.880921+00:00",
+ "env": {
+  "python": "3.13.16",
+  "platform": "Linux-6.6.159+-x86_64-with-glibc2.39",
+  "torch": "2.14.1+cu130",
+  "cuda_available": true,
+  "cuda_version": "13.0",
+  "gpu": "Tesla T4",
+  "gpu_total_gb": 14.56,
+  "bf16_native": false,
+  "transformers": "5.23.0",
+  "accelerate": "1.16.0",
+  "bitsandbytes": "0.50.2",
+  "huggingface_hub": "2.4.0",
+  "tokenizers": "0.23.3",
+  "system_ram_gb": 12.67
+ },
+ "generation_config": {
+  "do_sample": false,
+  "max_new_tokens": 512
+ },
+ "expects_think": false,
+ "force_think_prefix": false,
+ "load": {
+  "model_id": "google/gemma-2b-it",
+  "revision": null,
+  "precision": "fp16",
+  "download_s": 161.24694167299992,
+  "tokenizer_init_s": 2.7156364450000865,
+  "model_load_s": 23.852489833999925,
+  "total_load_s": 26.568126279000012,
+  "mem_after_load": {
+   "allocated_gb": 4.668111324310303,
+   "reserved_gb": 4.70703125,
+   "peak_allocated_gb": 4.668111324310303,
+   "peak_reserved_gb": 4.70703125
+  },
+  "n_parameters_loaded": 2506172416,
+  "max_position_embeddings": 8192,
+  "vocab_size": 256000
+ },
+ "fallback_attempts": [],
+ "dataset_version": "1.0",
+ "n_dev": 20,
+ "n_test": 10,
+ "n_robustness": 26
+}

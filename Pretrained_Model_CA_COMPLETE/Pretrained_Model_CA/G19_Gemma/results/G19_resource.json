@@ -1,0 +1,551 @@
+{
+  "input_length": [
+    {
+      "target_tokens": 256,
+      "actual_input_tokens": 785,
+      "seconds": 0.42138547100012147,
+      "new_tokens": 8,
+      "peak_mem_gb": 4.774143695831299,
+      "found_needle": true,
+      "answer_head": "K7-4921",
+      "status": "OK"
+    },
+    {
+      "target_tokens": 1024,
+      "actual_input_tokens": 1536,
+      "seconds": 0.5879832849998365,
+      "new_tokens": 8,
+      "peak_mem_gb": 4.867988109588623,
+      "found_needle": true,
+      "answer_head": "K7-4921",
+      "status": "OK"
+    },
+    {
+      "target_tokens": 2048,
+      "actual_input_tokens": 2290,
+      "seconds": 0.7769646409999496,
+      "new_tokens": 8,
+      "peak_mem_gb": 4.964317798614502,
+      "found_needle": true,
+      "answer_head": "K7-4921",
+      "status": "OK"
+    },
+    {
+      "target_tokens": 4096,
+      "actual_input_tokens": 4601,
+      "seconds": 1.8033737139999175,
+      "new_tokens": 14,
+      "peak_mem_gb": 5.253893852233887,
+      "found_needle": true,
+      "answer_head": "The secret access code is K7-4921.",
+      "status": "OK"
+    },
+    {
+      "target_tokens": 6000,
+      "actual_input_tokens": 6158,
+      "seconds": 1.8173082329999488,
+      "new_tokens": 1,
+      "peak_mem_gb": 5.445559978485107,
+      "found_needle": false,
+      "answer_head": "",
+      "status": "OK"
+    }
+  ],
+  "generation_length": [
+    {
+      "max_new_tokens": 64,
+      "new_tokens": 64,
+      "seconds": 1.7088561850000588,
+      "tokens_per_sec": 37.45195210795214,
+      "peak_mem_gb": 4.680067539215088
+    },
+    {
+      "max_new_tokens": 256,
+      "new_tokens": 256,
+      "seconds": 6.9485061790001055,
+      "tokens_per_sec": 36.84245122695402,
+      "peak_mem_gb": 4.683366298675537
+    },
+    {
+      "max_new_tokens": 512,
+      "new_tokens": 512,
+      "seconds": 15.664863418999857,
+      "tokens_per_sec": 32.6846130927,
+      "peak_mem_gb": 4.687764644622803
+    }
+  ],
+  "precision": [
+    {
+      "precision": "bf16",
+      "status": "OK",
+      "load": {
+        "model_id": "google/gemma-2b-it",
+        "revision": null,
+        "precision": "bf16",
+        "download_s": 0.20234020900011274,
+        "tokenizer_init_s": 1.6717097429998375,
+        "model_load_s": 15.789007544000015,
+        "total_load_s": 17.460717286999852,
+        "mem_after_load": {
+          "allocated_gb": 9.344157218933105,
+          "reserved_gb": 9.380859375,
+          "peak_allocated_gb": 9.344157218933105,
+          "peak_reserved_gb": 9.380859375
+        },
+        "n_parameters_loaded": 2506172416,
+        "max_position_embeddings": 8192,
+        "vocab_size": 256000
+      },
+      "metrics": {
+        "n": 5,
+        "n_correct": 3,
+        "accuracy": 0.6,
+        "accuracy_ci95": [
+          0.23071993220883708,
+          0.8823817688407467
+        ],
+        "exact_match": 0.25,
+        "token_f1": 0.2857142857142857,
+        "reasoning_correctness": 0.3333333333333333,
+        "n_reasoning": 3,
+        "instruction_compliance": 1.0,
+        "n_compliance": 1,
+        "structured_validity": 1.0,
+        "n_structured": 1,
+        "rouge1": null,
+        "rouge2": null,
+        "rougeL": null,
+        "n_rouge": 0,
+        "per_category": {
+          "general_knowledge": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "logical_reasoning": {
+            "n": 1,
+            "correct": 0,
+            "accuracy": 0.0
+          },
+          "mathematical_reasoning": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "multi_step": {
+            "n": 1,
+            "correct": 0,
+            "accuracy": 0.0
+          },
+          "structured_output": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          }
+        },
+        "time_mean_s": 1.7406882920000044,
+        "time_median_s": 0.9234152420001465,
+        "time_p90_s": 1.3860018839998247,
+        "time_total_s": 8.703441460000022,
+        "tokens_per_sec_aggregate": 27.91999016903819,
+        "tokens_per_sec_median": 27.58301855962952,
+        "mean_new_tokens": 48.6,
+        "peak_gpu_mem_gb_max": 9.353423595428467,
+        "n_hit_max_tokens": 0,
+        "n_unfinished_thinking": 0
+      },
+      "peak_mem_gb": 9.353423595428467,
+      "predictions": [
+        {
+          "id": "GK02",
+          "correct": true,
+          "extracted": "The capital city of Australia is Canberra, which is located in the Australian Capital Territory.",
+          "seconds": 0.655213619000051,
+          "new_tokens": 18
+        },
+        {
+          "id": "LR02",
+          "correct": false,
+          "extracted": "no",
+          "seconds": 0.6994782829999622,
+          "new_tokens": 19
+        },
+        {
+          "id": "MR01",
+          "correct": true,
+          "extracted": "36",
+          "seconds": 1.3860018839998247,
+          "new_tokens": 41
+        },
+        {
+          "id": "MS02",
+          "correct": false,
+          "extracted": "36",
+          "seconds": 5.039332432000037,
+          "new_tokens": 139
+        },
+        {
+          "id": "JS01",
+          "correct": true,
+          "extracted": "```json\n{\n  \"name\": \"Asha\",\n  \"age\": 30\n}\n```",
+          "seconds": 0.9234152420001465,
+          "new_tokens": 26
+        }
+      ]
+    },
+    {
+      "precision": "fp16",
+      "status": "OK",
+      "load": {
+        "model_id": "google/gemma-2b-it",
+        "revision": null,
+        "precision": "fp16",
+        "download_s": 0.1961313639999389,
+        "tokenizer_init_s": 1.6683633210000153,
+        "model_load_s": 9.945518386999993,
+        "total_load_s": 11.613881708000008,
+        "mem_after_load": {
+          "allocated_gb": 14.012268543243408,
+          "reserved_gb": 14.048828125,
+          "peak_allocated_gb": 14.012268543243408,
+          "peak_reserved_gb": 14.048828125
+        },
+        "n_parameters_loaded": 2506172416,
+        "max_position_embeddings": 8192,
+        "vocab_size": 256000
+      },
+      "metrics": {
+        "n": 5,
+        "n_correct": 3,
+        "accuracy": 0.6,
+        "accuracy_ci95": [
+          0.23071993220883708,
+          0.8823817688407467
+        ],
+        "exact_match": 0.25,
+        "token_f1": 0.2857142857142857,
+        "reasoning_correctness": 0.3333333333333333,
+        "n_reasoning": 3,
+        "instruction_compliance": 1.0,
+        "n_compliance": 1,
+        "structured_validity": 1.0,
+        "n_structured": 1,
+        "rouge1": null,
+        "rouge2": null,
+        "rougeL": null,
+        "n_rouge": 0,
+        "per_category": {
+          "general_knowledge": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "logical_reasoning": {
+            "n": 1,
+            "correct": 0,
+            "accuracy": 0.0
+          },
+          "mathematical_reasoning": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "multi_step": {
+            "n": 1,
+            "correct": 0,
+            "accuracy": 0.0
+          },
+          "structured_output": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          }
+        },
+        "time_mean_s": 1.2778151246000107,
+        "time_median_s": 0.6899913170000218,
+        "time_p90_s": 1.0698362809998798,
+        "time_total_s": 6.389075623000053,
+        "tokens_per_sec_aggregate": 38.033670962544804,
+        "tokens_per_sec_median": 37.960460674734975,
+        "mean_new_tokens": 48.6,
+        "peak_gpu_mem_gb_max": 9.35198974609375,
+        "n_hit_max_tokens": 0,
+        "n_unfinished_thinking": 0
+      },
+      "peak_mem_gb": 9.35198974609375,
+      "predictions": [
+        {
+          "id": "GK02",
+          "correct": true,
+          "extracted": "The capital city of Australia is Canberra, which is located in the Australian Capital Territory.",
+          "seconds": 0.4623954759999833,
+          "new_tokens": 18
+        },
+        {
+          "id": "LR02",
+          "correct": false,
+          "extracted": "no",
+          "seconds": 0.5051477770000474,
+          "new_tokens": 19
+        },
+        {
+          "id": "MR01",
+          "correct": true,
+          "extracted": "36",
+          "seconds": 1.0698362809998798,
+          "new_tokens": 41
+        },
+        {
+          "id": "MS02",
+          "correct": false,
+          "extracted": "36",
+          "seconds": 3.661704772000121,
+          "new_tokens": 139
+        },
+        {
+          "id": "JS01",
+          "correct": true,
+          "extracted": "```json\n{\n  \"name\": \"Asha\",\n  \"age\": 30\n}\n```",
+          "seconds": 0.6899913170000218,
+          "new_tokens": 26
+        }
+      ]
+    },
+    {
+      "precision": "8bit",
+      "status": "OK",
+      "load": {
+        "model_id": "google/gemma-2b-it",
+        "revision": null,
+        "precision": "8bit",
+        "download_s": 0.19861000200012313,
+        "tokenizer_init_s": 1.587900763000107,
+        "model_load_s": 11.924127351999914,
+        "total_load_s": 13.512028115000021,
+        "mem_after_load": {
+          "allocated_gb": 12.169209003448486,
+          "reserved_gb": 14.03515625,
+          "peak_allocated_gb": 12.285393714904785,
+          "peak_reserved_gb": 14.03515625
+        },
+        "n_parameters_loaded": 2506172416,
+        "max_position_embeddings": 8192,
+        "vocab_size": 256000
+      },
+      "metrics": {
+        "n": 5,
+        "n_correct": 4,
+        "accuracy": 0.8,
+        "accuracy_ci95": [
+          0.3755282641185388,
+          0.9637768390302125
+        ],
+        "exact_match": 0.5,
+        "token_f1": 0.5357142857142857,
+        "reasoning_correctness": 0.6666666666666666,
+        "n_reasoning": 3,
+        "instruction_compliance": 1.0,
+        "n_compliance": 1,
+        "structured_validity": 1.0,
+        "n_structured": 1,
+        "rouge1": null,
+        "rouge2": null,
+        "rougeL": null,
+        "n_rouge": 0,
+        "per_category": {
+          "general_knowledge": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "logical_reasoning": {
+            "n": 1,
+            "correct": 0,
+            "accuracy": 0.0
+          },
+          "mathematical_reasoning": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "multi_step": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "structured_output": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          }
+        },
+        "time_mean_s": 5.552101415800007,
+        "time_median_s": 3.1651177769999777,
+        "time_p90_s": 4.299839364000036,
+        "time_total_s": 27.760507079000035,
+        "tokens_per_sec_aggregate": 8.969576790921113,
+        "tokens_per_sec_median": 8.22501805968301,
+        "mean_new_tokens": 49.8,
+        "peak_gpu_mem_gb_max": 7.756779193878174,
+        "n_hit_max_tokens": 0,
+        "n_unfinished_thinking": 0
+      },
+      "peak_mem_gb": 7.756779193878174,
+      "predictions": [
+        {
+          "id": "GK02",
+          "correct": true,
+          "extracted": "The capital city of Australia is Canberra, which is located in the Australian Capital Territory.",
+          "seconds": 2.2641671020001013,
+          "new_tokens": 18
+        },
+        {
+          "id": "LR02",
+          "correct": false,
+          "extracted": "no",
+          "seconds": 2.3100253229999907,
+          "new_tokens": 19
+        },
+        {
+          "id": "MR01",
+          "correct": true,
+          "extracted": "36",
+          "seconds": 4.299839364000036,
+          "new_tokens": 41
+        },
+        {
+          "id": "MS02",
+          "correct": true,
+          "extracted": "24",
+          "seconds": 15.72135751299993,
+          "new_tokens": 145
+        },
+        {
+          "id": "JS01",
+          "correct": true,
+          "extracted": "```json\n{\n  \"name\": \"Asha\",\n  \"age\": 30\n}\n```",
+          "seconds": 3.1651177769999777,
+          "new_tokens": 26
+        }
+      ]
+    },
+    {
+      "precision": "4bit",
+      "status": "OK",
+      "load": {
+        "model_id": "google/gemma-2b-it",
+        "revision": null,
+        "precision": "4bit",
+        "download_s": 0.19150185900002725,
+        "tokenizer_init_s": 1.5428054270000757,
+        "model_load_s": 7.009820288000128,
+        "total_load_s": 8.552625715000204,
+        "mem_after_load": {
+          "allocated_gb": 9.430256843566895,
+          "reserved_gb": 14.037109375,
+          "peak_allocated_gb": 9.492111682891846,
+          "peak_reserved_gb": 14.037109375
+        },
+        "n_parameters_loaded": 1515268096,
+        "max_position_embeddings": 8192,
+        "vocab_size": 256000
+      },
+      "metrics": {
+        "n": 5,
+        "n_correct": 3,
+        "accuracy": 0.6,
+        "accuracy_ci95": [
+          0.23071993220883708,
+          0.8823817688407467
+        ],
+        "exact_match": 0.25,
+        "token_f1": 0.275,
+        "reasoning_correctness": 0.3333333333333333,
+        "n_reasoning": 3,
+        "instruction_compliance": 1.0,
+        "n_compliance": 1,
+        "structured_validity": 1.0,
+        "n_structured": 1,
+        "rouge1": null,
+        "rouge2": null,
+        "rougeL": null,
+        "n_rouge": 0,
+        "per_category": {
+          "general_knowledge": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "logical_reasoning": {
+            "n": 1,
+            "correct": 0,
+            "accuracy": 0.0
+          },
+          "mathematical_reasoning": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "multi_step": {
+            "n": 1,
+            "correct": 0,
+            "accuracy": 0.0
+          },
+          "structured_output": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          }
+        },
+        "time_mean_s": 2.2628683141999772,
+        "time_median_s": 1.2939681739999287,
+        "time_p90_s": 2.84101055300016,
+        "time_total_s": 11.314341570999886,
+        "tokens_per_sec_aggregate": 26.956937625230818,
+        "tokens_per_sec_median": 27.743192361323388,
+        "mean_new_tokens": 61.0,
+        "peak_gpu_mem_gb_max": 6.612978935241699,
+        "n_hit_max_tokens": 0,
+        "n_unfinished_thinking": 0
+      },
+      "peak_mem_gb": 6.612978935241699,
+      "predictions": [
+        {
+          "id": "GK02",
+          "correct": true,
+          "extracted": "The capital city of Australia is Canberra.\n\nCanberra is the capital city of Australia and is located in the Australian Capital Territory.",
+          "seconds": 0.96976524899992,
+          "new_tokens": 27
+        },
+        {
+          "id": "LR02",
+          "correct": false,
+          "extracted": "no",
+          "seconds": 1.2939681739999287,
+          "new_tokens": 30
+        },
+        {
+          "id": "MR01",
+          "correct": true,
+          "extracted": "36",
+          "seconds": 2.84101055300016,
+          "new_tokens": 70
+        },
+        {
+          "id": "MS02",
+          "correct": false,
+          "extracted": "84",
+          "seconds": 5.272430751999991,
+          "new_tokens": 152
+        },
+        {
+          "id": "JS01",
+          "correct": true,
+          "extracted": "```json\n{\n  \"name\": \"Asha\",\n  \"age\": 30\n}\n```",
+          "seconds": 0.9371668429998863,
+          "new_tokens": 26
+        }
+      ]
+    }
+  ]
+}

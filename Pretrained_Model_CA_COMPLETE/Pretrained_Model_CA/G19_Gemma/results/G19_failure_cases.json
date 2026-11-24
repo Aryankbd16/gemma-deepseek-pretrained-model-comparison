@@ -1,0 +1,292 @@
+[
+  {
+    "id": "IF01",
+    "category": "instruction_following",
+    "input": "List exactly three fruits, one per line, with no numbering, no bullets and no extra text.",
+    "expected_behaviour": "Exactly three short lines containing fruit names, no numbering/bullets/extra text",
+    "actual_output": "Sure, here are three fruits:\n\n- Apple\n- Banana\n- Strawberry",
+    "failure_type": "Instruction-following failure",
+    "explanation": "Automatic evaluator marked this FAIL ({\"checks\": {\"n_lines\": false, \"no_digits\": true, \"no_bullets\": false, \"line_max_words\": false}}). Extracted='Sure, here are three fruits:\\n\\n- Apple\\n- Banana\\n- Strawberry'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "IF02",
+    "category": "instruction_following",
+    "input": "Write exactly one sentence about the ocean without using the word 'the'.",
+    "expected_behaviour": "A single sentence about the ocean that never uses the word 'the'",
+    "actual_output": "The vast expanse of the ocean stretches out, encompassing a myriad of mysteries and wonders.",
+    "failure_type": "Instruction-following failure",
+    "explanation": "Automatic evaluator marked this FAIL ({\"checks\": {\"n_sentences\": true, \"no_word_the\": false}}). Extracted='The vast expanse of the ocean stretches out, encompassing a myriad of mysteries '. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "LR01",
+    "category": "logical_reasoning",
+    "input": "All bloops are razzies. All razzies are lazzies. Are all bloops definitely lazzies? Answer 'Yes' or 'No' first, then explain in one sentence.",
+    "expected_behaviour": "Reference answer: Yes",
+    "actual_output": "Answer: No\n\nExplanation: The premise of the question is logically incorrect. Just because some bloops are razzies, it does not mean that all razzies are bloops.",
+    "failure_type": "Logical reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='no'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "LR02",
+    "category": "logical_reasoning",
+    "input": "If it rains, the match is cancelled. The match was not cancelled. Can we conclude that it did not rain? Answer 'Yes' or 'No' first, then explain in one sentence.",
+    "expected_behaviour": "Reference answer: Yes",
+    "actual_output": "No.\n\nThe fact that the match was not cancelled means that it did not rain.",
+    "failure_type": "Logical reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='no'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "MS02",
+    "category": "multi_step",
+    "input": "Tom is twice as old as Sam. In 6 years the sum of their ages will be 48. How old is Tom now? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "expected_behaviour": "Reference answer: 24",
+    "actual_output": "Let x be Sam's age.\n\nThen, Tom's age is 2x.\n\nIn 6 years, Sam's age will be x + 6.\n\nIn 6 years, Tom's age will be 2x + 6.\n\nThe sum of their ages in 6 years will be x + 6 = 2x + 6 = 48.\n\nSolving for x, we get x = 18.\n\nTherefore, Sam's age is 18, and Tom's age is 2(18) = 36.\n\nFinal answer: Tom is 36 years old.",
+    "failure_type": "Mathematical / multi-step reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='36'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "SU02",
+    "category": "summarization",
+    "input": "Summarize the following passage in one sentence of at most 25 words.\n\nPassage: Many companies now allow employees to work from home several days a week. Supporters say this saves commuting time and lets people balance family duties, while critics worry that it weakens team bonds and makes it harder for new staff to learn from colleagues. Surveys of workers often show high satisfaction, but managers remain divided about its long-term effect on productivity.",
+    "expected_behaviour": "One concise sentence (<=25 words) covering both benefits and concerns of remote work",
+    "actual_output": "Sure, here's a summary of the passage in one sentence:\n\nThe passage discusses the impact of remote work on company culture and employee satisfaction.",
+    "failure_type": "Summarisation constraint or coverage failure",
+    "explanation": "Automatic evaluator marked this FAIL ({\"checks\": {\"max_words\": true}, \"group_hits\": [true, true, false]}). Extracted=\"Sure, here's a summary of the passage in one sentence:\\n\\nThe passage discusses th\". Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "CO01",
+    "category": "coding",
+    "input": "Write a Python function `is_palindrome(s)` that returns True if the string s reads the same forwards and backwards when case is ignored, otherwise False. Return only the code in one ```python block.",
+    "expected_behaviour": "Reference answer: def is_palindrome(s): t=s.lower(); return t==t[::-1]",
+    "actual_output": "```python\ndef is_palindrome(s):\n    return s == s[::-1]\n```",
+    "failure_type": "Coding error",
+    "explanation": "Automatic evaluator marked this FAIL ({\"passed\": 3, \"total\": 5, \"error\": null}). Extracted='def is_palindrome(s):\\n    return s == s[::-1]'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "AN01",
+    "category": "analytical",
+    "input": "A store's monthly sales were 120 in January, 150 in February and 135 in March. Which month had the largest month-over-month percentage increase, and what was that percentage?",
+    "expected_behaviour": "Reference answer: February, 25%",
+    "actual_output": "The month with the largest month-over-month percentage increase was March, with a 15% increase.",
+    "failure_type": "Analytical / content-coverage failure",
+    "explanation": "Automatic evaluator marked this FAIL ({\"group_hits\": [false, false]}). Extracted='The month with the largest month-over-month percentage increase was March, with '. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "JS02",
+    "category": "structured_output",
+    "input": "Return a JSON array of exactly 3 objects, each with the keys \"city\" and \"country\", for Paris, Tokyo and Cairo in that order. Output only the JSON.",
+    "expected_behaviour": "Only a JSON array of three city/country objects in the requested order",
+    "actual_output": "```json\n[\n  {\n    \"city\": \"Paris\"\n  },\n  {\n    \"city\": \"Tokyo\"\n  },\n  {\n    \"city\": \"Cairo\"\n  }\n]\n```",
+    "failure_type": "Incorrect structured output",
+    "explanation": "Automatic evaluator marked this FAIL ({\"valid\": true, \"schema_ok\": false, \"values_ok\": false, \"clean\": true}). Extracted='```json\\n[\\n  {\\n    \"city\": \"Paris\"\\n  },\\n  {\\n    \"city\": \"Tokyo\"\\n  },\\n  {\\n    \"cit'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "AM01",
+    "category": "ambiguous_misleading",
+    "input": "What is the capital of Georgia?",
+    "expected_behaviour": "Either asks which Georgia is meant or gives both Tbilisi (country) and Atlanta (US state)",
+    "actual_output": "The capital of Georgia is Tbilisi. It is the political, economic, and cultural center of the country.",
+    "failure_type": "Ambiguous-prompt mis-handling",
+    "explanation": "Automatic evaluator marked this FAIL ({\"asks_or_flags_ambiguity\": false, \"covers_all_readings\": false}). Extracted='The capital of Georgia is Tbilisi. It is the political, economic, and cultural c'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "IF03",
+    "category": "instruction_following",
+    "input": "Write exactly two sentences explaining why sleep is important. Do not use the word 'health' (or any word containing it).",
+    "expected_behaviour": "Exactly two sentences about sleep, avoiding 'health'/'healthy'",
+    "actual_output": "Sleep is crucial for restoring and repairing the body's tissues and organs, ensuring optimal cognitive function and overall well-being.",
+    "failure_type": "Instruction-following failure",
+    "explanation": "Automatic evaluator marked this FAIL ({\"checks\": {\"n_sentences\": false, \"no_substr_health\": true}}). Extracted=\"Sleep is crucial for restoring and repairing the body's tissues and organs, ensu\". Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "MS03",
+    "category": "multi_step",
+    "input": "A tank holds 600 litres and is 40% full. A pipe adds 25 litres per minute. How many minutes until the tank is completely full? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "expected_behaviour": "Reference answer: 14.4",
+    "actual_output": "**Step 1**: Calculate the amount of water added in 1 minute. 25 litres per minute x 60 minutes = 1500 litres per minute.\n\n**Step 2**: Calculate the time taken to fill the tank. 600 litres / 1500 litres/minute = 0.4 hours.\n\n**Step 3**: Convert hours to minutes. 0.4 hours x 60 minutes/hour = 24 minutes.\n\n**Final answer: 24**",
+    "failure_type": "Mathematical / multi-step reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='24'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "SU03",
+    "category": "summarization",
+    "input": "Summarize the following passage in one sentence of at most 25 words.\n\nPassage: Cities are often several degrees warmer than the countryside around them, an effect called the urban heat island. Dark roads and roofs absorb sunlight, concrete stores heat overnight, and there are fewer trees to provide shade and cool the air through evaporation. Planting trees, installing reflective roofs and adding green spaces can reduce the effect and lower summer energy use.",
+    "expected_behaviour": "One concise sentence (<=25 words) covering urban heat, its cause and mitigation",
+    "actual_output": "Sure, here's a summary in one sentence:\n\nCities experience higher temperatures due to factors like dark surfaces, concrete, and limited vegetation, leading to increased energy consumption.",
+    "failure_type": "Summarisation constraint or coverage failure",
+    "explanation": "Automatic evaluator marked this FAIL ({\"checks\": {\"max_words\": false}, \"group_hits\": [true, true, false]}). Extracted=\"Sure, here's a summary in one sentence:\\n\\nCities experience higher temperatures d\". Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "CO03",
+    "category": "coding",
+    "input": "Write a Python function `second_largest(nums)` that returns the second largest DISTINCT value in a list of integers, or None if there are fewer than two distinct values. Return only the code in one ```python block.",
+    "expected_behaviour": "Reference answer: def second_largest(nums): d=sorted(set(nums)); return d[-2] if len(d)>1 else None",
+    "actual_output": "```python\ndef second_largest(nums):\n  \"\"\"\n  Returns the second largest distinct value in a list of integers.\n\n  Args:\n    nums: A list of integers.\n\n  Returns:\n    The second largest distinct value in the list, or None if there are fewer than two distinct values.\n  \"\"\"\n\n  # Remove duplicate elements from the list.\n  unique_nums = list(set(nums))\n\n  # Return the second largest value in the list.\n  return max(unique_nums[-2:])\n```",
+    "failure_type": "Coding error",
+    "explanation": "Automatic evaluator marked this FAIL ({\"passed\": 0, \"total\": 5, \"error\": null}). Extracted='def second_largest(nums):\\n  \"\"\"\\n  Returns the second largest distinct value in a'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "JS03",
+    "category": "structured_output",
+    "input": "Produce a Markdown table with the columns Item, Qty, Price for: Pen 10 5; Book 2 120; Bag 1 450. Output only the table.",
+    "expected_behaviour": "Only a Markdown table with header Item|Qty|Price and the three rows",
+    "actual_output": "| Item | Qty | Price |\n|---|---|---|\n| Pen | 10 | Not Provided |\n| Book | 2 | 120 |\n| Bag | 1 | 450 |",
+    "failure_type": "Incorrect structured output",
+    "explanation": "Automatic evaluator marked this FAIL ({\"valid\": true, \"schema_ok\": true, \"values_ok\": false, \"clean\": true}). Extracted='| Item | Qty | Price |\\n|---|---|---|\\n| Pen | 10 | Not Provided |\\n| Book | 2 | 12'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "AM03",
+    "category": "ambiguous_misleading",
+    "input": "A bat and a ball cost 1.10 dollars in total. The bat costs 1.00 dollar more than the ball. How much does the ball cost, in cents? Think step by step, then end with a line of the form 'Final answer: <number of cents>'.",
+    "expected_behaviour": "Reference answer: 5 cents",
+    "actual_output": "Let x be the price of the ball in cents.\n\nThen the bat costs x + 1.00.\n\nThe total cost is 1.10, so we have:\n\nx + 1.00 = 1.10\n\nSubtracting 1.00 from both sides:\n\nx = 0.10\n\nTherefore, the ball costs 0.10 cents.",
+    "failure_type": "Mathematical / multi-step reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='0.1'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R1g",
+    "category": "robustness",
+    "input": "Calculate fifteen percent of two hundred forty. Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "expected_behaviour": "36",
+    "actual_output": "Sure, here's the calculation:\n\nStep 1: Find 204 x 0.15.\n\n204 x 0.15 = 32\n\nTherefore, 15% of 204 is 32.",
+    "failure_type": "Mathematical / multi-step reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='32'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R2a",
+    "category": "robustness",
+    "input": "Ravi has 12 apples. He buys 8 more. How many apples does he have? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "expected_behaviour": "20",
+    "actual_output": "**Step 1:** Start with the initial number of apples Ravi has, which is 12.\n\n**Step 2:** Add 8 to the initial number of apples.\n\n**Final answer: 12 + 8 = 20**",
+    "failure_type": "Mathematical / multi-step reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='12'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R2d",
+    "category": "robustness",
+    "input": "Ravi has 12 apples. He buys 8 more, gives 5 away, triples what he has left, eats 5, and finally shares the rest equally among himself and 3 friends (4 people in total). How many apples does each person get? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "expected_behaviour": "10",
+    "actual_output": "**Step 1:** Ravi starts with 12 apples.\n\n**Step 2:** He buys 8 more apples, so he has 12 + 8 = 20 apples.\n\n**Step 3:** He gives 5 away, so he has 20 - 5 = 15 apples.\n\n**Step 4:** He triples what he has left, so he has 15 x 3 = 45 apples.\n\n**Step 5:** He eats 5 apples, so he has 45 - 5 = 40 apples.\n\n**Step 6:** He shares the rest equally among himself and 3 friends, so each person gets 4 apples.\n\n**Final answer: 4**",
+    "failure_type": "Mathematical / multi-step reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='4'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R3a",
+    "category": "robustness",
+    "input": "Make it shorter.",
+    "expected_behaviour": "Asks what text to shorten (or flags missing input)",
+    "actual_output": "Sure, I can help make it shorter. Just provide the text you would like me to condense and I will do my best to make it shorter while maintaining the meaning.",
+    "failure_type": "Ambiguous-prompt mis-handling",
+    "explanation": "Automatic evaluator marked this FAIL ({\"asks_or_flags_ambiguity\": false, \"covers_all_readings\": false}). Extracted='Sure, I can help make it shorter. Just provide the text you would like me to con'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R3b",
+    "category": "robustness",
+    "input": "Is it safe to eat?",
+    "expected_behaviour": "Asks what 'it' refers to",
+    "actual_output": "I am unable to provide medical advice or endorse the consumption of food or beverages. I recommend that you seek the guidance of a healthcare professional or registered dietitian for any questions or concerns you may have regarding your health and dietary needs.",
+    "failure_type": "Ambiguous-prompt mis-handling",
+    "explanation": "Automatic evaluator marked this FAIL ({\"asks_or_flags_ambiguity\": false, \"covers_all_readings\": false}). Extracted='I am unable to provide medical advice or endorse the consumption of food or beve'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R3c",
+    "category": "robustness",
+    "input": "Convert 100 to the right units.",
+    "expected_behaviour": "Asks which quantity/units",
+    "actual_output": "100 to the right units would be in the **centimeter (cm)** measurement.",
+    "failure_type": "Ambiguous-prompt mis-handling",
+    "explanation": "Automatic evaluator marked this FAIL ({\"asks_or_flags_ambiguity\": false, \"covers_all_readings\": false}). Extracted='100 to the right units would be in the **centimeter (cm)** measurement.'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R3d",
+    "category": "robustness",
+    "input": "Translate this into the usual language.",
+    "expected_behaviour": "Asks for the text and the target language",
+    "actual_output": "I am unable to translate the context you have provided into the usual language, as I do not have access to the context.",
+    "failure_type": "Ambiguous-prompt mis-handling",
+    "explanation": "Automatic evaluator marked this FAIL ({\"asks_or_flags_ambiguity\": false, \"covers_all_readings\": false}). Extracted='I am unable to translate the context you have provided into the usual language, '. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R4b",
+    "category": "robustness",
+    "input": "What is 17 multiplied by 23? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "expected_behaviour": "391",
+    "actual_output": "Sure, here's the step-by-step solution:\n\n17 multiplied by 23 is:\n\n17 x 23 = 401\n\nTherefore, the final answer is 401.",
+    "failure_type": "Mathematical / multi-step reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='401'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R4d",
+    "category": "robustness",
+    "input": "What is the sum of the roots of x^2 - 9x + 14 = 0? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "expected_behaviour": "9",
+    "actual_output": "$$x = \\frac{-(-9) \\pm \\sqrt{(-9)^2 - 4(1)(14)}}{2(1)}$$\n\n$$x = \\frac{9 \\pm \\sqrt{81 - 56}}{2}$$\n\n$$x = \\frac{9 \\pm \\sqrt{25}}{2}$$\n\n$$x = \\frac{9 \\pm 5}{2}$$\n\nThe roots are:\n\n$$x = 5 \\text{ and } x = 7$$\n\nTherefore, the sum of the roots is:\n\n$$5 + 7 = 12$$",
+    "failure_type": "Mathematical / multi-step reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='12'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R4e",
+    "category": "robustness",
+    "input": "12000 rupees are invested at 10% interest per year, compounded annually. What is the total amount after 2 years, in rupees? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "expected_behaviour": "14520",
+    "actual_output": "**Step 1: Calculate the interest earned per year.**\n\nInterest = Principal amount * Interest rate\nInterest = 12000 * 10% = 1200\n\n**Step 2: Calculate the total amount after 2 years.**\n\nTotal amount = Principal amount + Interest\nTotal amount = 12000 + 1200\nTotal amount = 13200\n\n**Final answer: 13200**",
+    "failure_type": "Mathematical / multi-step reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='13200'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R5b",
+    "category": "robustness",
+    "input": "Return a JSON array containing exactly one object with keys name, age, city for Meera, 28, Pune (age as an integer). Output only the JSON.",
+    "expected_behaviour": "JSON array",
+    "actual_output": "```json\n{\n  \"name\": \"Meera\",\n  \"age\": 28,\n  \"city\": \"Pune\"\n}\n```",
+    "failure_type": "Incorrect structured output",
+    "explanation": "Automatic evaluator marked this FAIL ({\"valid\": true, \"schema_ok\": false, \"values_ok\": false, \"clean\": true}). Extracted='```json\\n{\\n  \"name\": \"Meera\",\\n  \"age\": 28,\\n  \"city\": \"Pune\"\\n}\\n```'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R5c",
+    "category": "robustness",
+    "input": "Return CSV with the header name,age,city and one data row for Meera, 28, Pune. Output only the CSV.",
+    "expected_behaviour": "CSV",
+    "actual_output": "Meera,28,Pune\n\nHere is the CSV with the header name, age, city and one data row for Meera:\n\n```\nheader,age,city\nMeera,28,Pune\n```",
+    "failure_type": "Incorrect structured output",
+    "explanation": "Automatic evaluator marked this FAIL ({\"valid\": false, \"schema_ok\": false, \"values_ok\": false, \"clean\": true}). Extracted='Meera,28,Pune\\n\\nHere is the CSV with the header name, age, city and one data row '. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "LEN6000",
+    "category": "context_length",
+    "input": "~6158-token log with one secret code in the middle",
+    "expected_behaviour": "retrieve the code K7-4921",
+    "actual_output": "",
+    "failure_type": "Context-length limitation (needle not retrieved)",
+    "explanation": "Observed in the input-length experiment at the stated prompt length.",
+    "observed": true
+  }
+]

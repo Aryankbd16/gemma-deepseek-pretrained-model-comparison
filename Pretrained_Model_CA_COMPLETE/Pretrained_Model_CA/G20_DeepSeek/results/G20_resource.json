@@ -1,0 +1,193 @@
+{
+  "input_length": [
+    {
+      "target_tokens": 256,
+      "actual_input_tokens": 754,
+      "seconds": 40.980116570000064,
+      "new_tokens": 768,
+      "peak_mem_gb": 5.435802459716797,
+      "found_needle": false,
+      "answer_head": "",
+      "status": "OK"
+    },
+    {
+      "target_tokens": 1024,
+      "actual_input_tokens": 1480,
+      "seconds": 42.29672955699971,
+      "new_tokens": 768,
+      "peak_mem_gb": 5.551224708557129,
+      "found_needle": false,
+      "answer_head": "",
+      "status": "OK"
+    },
+    {
+      "target_tokens": 2048,
+      "actual_input_tokens": 2209,
+      "seconds": 43.74611793399981,
+      "new_tokens": 768,
+      "peak_mem_gb": 5.6566057205200195,
+      "found_needle": false,
+      "answer_head": "",
+      "status": "OK"
+    },
+    {
+      "target_tokens": 4096,
+      "actual_input_tokens": 4445,
+      "seconds": 47.829834506000225,
+      "new_tokens": 768,
+      "peak_mem_gb": 6.016578674316406,
+      "found_needle": false,
+      "answer_head": "",
+      "status": "OK"
+    },
+    {
+      "target_tokens": 6000,
+      "actual_input_tokens": 6700,
+      "seconds": 36.85098928199977,
+      "new_tokens": 507,
+      "peak_mem_gb": 6.435652732849121,
+      "found_needle": true,
+      "answer_head": "The secret access code is K7-4921.",
+      "status": "OK"
+    }
+  ],
+  "generation_length": [
+    {
+      "max_new_tokens": 64,
+      "new_tokens": 64,
+      "seconds": 3.607606818000022,
+      "tokens_per_sec": 17.740292451126976,
+      "peak_mem_gb": 5.198117733001709
+    },
+    {
+      "max_new_tokens": 256,
+      "new_tokens": 256,
+      "seconds": 13.379001089999747,
+      "tokens_per_sec": 19.13446290032441,
+      "peak_mem_gb": 5.208374500274658
+    },
+    {
+      "max_new_tokens": 512,
+      "new_tokens": 512,
+      "seconds": 26.77288201700003,
+      "tokens_per_sec": 19.123828345222392,
+      "peak_mem_gb": 5.222050189971924
+    }
+  ],
+  "precision": [
+    {
+      "precision": "4bit",
+      "status": "OK",
+      "load": {
+        "model_id": "deepseek-ai/DeepSeek-R1-Distill-Qwen-7B",
+        "revision": null,
+        "precision": "4bit",
+        "download_s": 0.196981049000442,
+        "tokenizer_init_s": 0.921334829999978,
+        "model_load_s": 64.11950779500012,
+        "total_load_s": 65.0408426250001,
+        "mem_after_load": {
+          "allocated_gb": 10.36497974395752,
+          "reserved_gb": 10.517578125,
+          "peak_allocated_gb": 10.485211372375488,
+          "peak_reserved_gb": 10.517578125
+        },
+        "n_parameters_loaded": 4352972288,
+        "max_position_embeddings": 131072,
+        "vocab_size": 152064
+      },
+      "metrics": {
+        "n": 4,
+        "n_correct": 4,
+        "accuracy": 1.0,
+        "accuracy_ci95": [
+          0.5100999795960008,
+          1.0
+        ],
+        "exact_match": 1.0,
+        "token_f1": 1.0,
+        "reasoning_correctness": 1.0,
+        "n_reasoning": 2,
+        "instruction_compliance": 1.0,
+        "n_compliance": 1,
+        "structured_validity": 1.0,
+        "n_structured": 1,
+        "rouge1": null,
+        "rouge2": null,
+        "rougeL": null,
+        "n_rouge": 0,
+        "per_category": {
+          "general_knowledge": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "logical_reasoning": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "mathematical_reasoning": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          },
+          "structured_output": {
+            "n": 1,
+            "correct": 1,
+            "accuracy": 1.0
+          }
+        },
+        "time_mean_s": 16.180350296500023,
+        "time_median_s": 12.308109093999974,
+        "time_p90_s": 13.189716903999852,
+        "time_total_s": 64.7214011860001,
+        "tokens_per_sec_aggregate": 19.035434607780005,
+        "tokens_per_sec_median": 18.960850600721336,
+        "mean_new_tokens": 308.0,
+        "peak_gpu_mem_gb_max": 10.405566692352295,
+        "n_hit_max_tokens": 0,
+        "n_unfinished_thinking": 0
+      },
+      "peak_mem_gb": 10.405566692352295,
+      "predictions": [
+        {
+          "id": "GK02",
+          "correct": true,
+          "extracted": "Canberra",
+          "seconds": 9.849157383000147,
+          "new_tokens": 183
+        },
+        {
+          "id": "LR02",
+          "correct": true,
+          "extracted": "yes",
+          "seconds": 30.256025615,
+          "new_tokens": 582
+        },
+        {
+          "id": "MR01",
+          "correct": true,
+          "extracted": "36",
+          "seconds": 11.426501284000096,
+          "new_tokens": 215
+        },
+        {
+          "id": "JS01",
+          "correct": true,
+          "extracted": "```json\n{\n  \"name\": \"Asha\",\n  \"age\": 30\n}\n```",
+          "seconds": 13.189716903999852,
+          "new_tokens": 252
+        }
+      ]
+    },
+    {
+      "precision": "8bit",
+      "status": "FAILED: OutOfMemoryError: CUDA out of memory. Tried to allocate 7.96 GiB. GPU 0 has a total capacity of 14.56 GiB of which 3.91 GiB is free. Including non-PyTorch memory, this process has 10.65 GiB memory in use. Of the allocated memory 10.36 GiB is allocated by PyTorch, and 156.26 MiB is reserved by PyTorch but unallocated."
+    },
+    {
+      "precision": "fp16/bf16",
+      "status": "SKIPPED: needs ~16+ GB for weights alone; this GPU has 14.56 GB"
+    }
+  ]
+}

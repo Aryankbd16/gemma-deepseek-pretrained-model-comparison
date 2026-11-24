@@ -1,0 +1,1311 @@
+{
+ "name": "Pretrained_Model_CA common evaluation set",
+ "version": "1.0",
+ "note": "Evaluation only - pretrained models are NOT trained on this data. dev (20) used to verify the pipeline; test (10) held out, never used to adjust prompts/extractors.",
+ "samples": [
+  {
+   "id": "GK01",
+   "split": "dev",
+   "category": "general_knowledge",
+   "difficulty": "easy",
+   "prompt": "What is the chemical symbol for gold? Answer with just the name or number, no explanation.",
+   "reference": "Au",
+   "eval_type": "contains_any",
+   "eval_spec": {
+    "answers": [
+     "Au"
+    ]
+   },
+   "criteria": "Correct symbol 'Au'",
+   "reasoning": false,
+   "short_answer": "Au",
+   "expected_behaviour": "Reference answer: Au"
+  },
+  {
+   "id": "GK02",
+   "split": "dev",
+   "category": "general_knowledge",
+   "difficulty": "easy",
+   "prompt": "What is the capital city of Australia? Answer with just the name or number, no explanation.",
+   "reference": "Canberra",
+   "eval_type": "contains_any",
+   "eval_spec": {
+    "answers": [
+     "Canberra"
+    ]
+   },
+   "criteria": "Correct capital (common distractors: Sydney, Melbourne)",
+   "reasoning": false,
+   "short_answer": "Canberra",
+   "expected_behaviour": "Reference answer: Canberra"
+  },
+  {
+   "id": "GK03",
+   "split": "test",
+   "category": "general_knowledge",
+   "difficulty": "medium",
+   "prompt": "In which year did the Chernobyl nuclear power plant accident occur? Answer with just the name or number, no explanation.",
+   "reference": "1986",
+   "eval_type": "contains_any",
+   "eval_spec": {
+    "answers": [
+     "1986"
+    ]
+   },
+   "criteria": "Correct year 1986",
+   "reasoning": false,
+   "short_answer": "1986",
+   "expected_behaviour": "Reference answer: 1986"
+  },
+  {
+   "id": "IF01",
+   "split": "dev",
+   "category": "instruction_following",
+   "difficulty": "easy",
+   "prompt": "List exactly three fruits, one per line, with no numbering, no bullets and no extra text.",
+   "reference": "Three lines, each a fruit name",
+   "eval_type": "ifcheck",
+   "eval_spec": {
+    "n_lines": 3,
+    "no_digits": true,
+    "no_bullets": true,
+    "line_max_words": 3
+   },
+   "criteria": "Exactly 3 non-empty lines; no digits/bullets; <=3 words per line",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "Exactly three short lines containing fruit names, no numbering/bullets/extra text"
+  },
+  {
+   "id": "IF02",
+   "split": "dev",
+   "category": "instruction_following",
+   "difficulty": "medium",
+   "prompt": "Write exactly one sentence about the ocean without using the word 'the'.",
+   "reference": "One sentence, no word 'the'",
+   "eval_type": "ifcheck",
+   "eval_spec": {
+    "n_sentences": 1,
+    "forbidden_words": [
+     "the"
+    ]
+   },
+   "criteria": "Exactly 1 sentence; word 'the' absent",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "A single sentence about the ocean that never uses the word 'the'"
+  },
+  {
+   "id": "IF03",
+   "split": "test",
+   "category": "instruction_following",
+   "difficulty": "medium",
+   "prompt": "Write exactly two sentences explaining why sleep is important. Do not use the word 'health' (or any word containing it).",
+   "reference": "Two sentences, no 'health'",
+   "eval_type": "ifcheck",
+   "eval_spec": {
+    "n_sentences": 2,
+    "forbidden_substrings": [
+     "health"
+    ]
+   },
+   "criteria": "Exactly 2 sentences; substring 'health' absent",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "Exactly two sentences about sleep, avoiding 'health'/'healthy'"
+  },
+  {
+   "id": "LR01",
+   "split": "dev",
+   "category": "logical_reasoning",
+   "difficulty": "easy",
+   "prompt": "All bloops are razzies. All razzies are lazzies. Are all bloops definitely lazzies? Answer 'Yes' or 'No' first, then explain in one sentence.",
+   "reference": "Yes",
+   "eval_type": "yesno",
+   "eval_spec": {
+    "answer": "yes"
+   },
+   "criteria": "Transitive syllogism -> Yes",
+   "reasoning": true,
+   "short_answer": "yes",
+   "expected_behaviour": "Reference answer: Yes"
+  },
+  {
+   "id": "LR02",
+   "split": "dev",
+   "category": "logical_reasoning",
+   "difficulty": "medium",
+   "prompt": "If it rains, the match is cancelled. The match was not cancelled. Can we conclude that it did not rain? Answer 'Yes' or 'No' first, then explain in one sentence.",
+   "reference": "Yes",
+   "eval_type": "yesno",
+   "eval_spec": {
+    "answer": "yes"
+   },
+   "criteria": "Modus tollens -> Yes",
+   "reasoning": true,
+   "short_answer": "yes",
+   "expected_behaviour": "Reference answer: Yes"
+  },
+  {
+   "id": "LR03",
+   "split": "test",
+   "category": "logical_reasoning",
+   "difficulty": "medium",
+   "prompt": "All doctors in the clinic are tall. Priya is tall. Is Priya definitely a doctor in the clinic? Answer 'Yes' or 'No' first, then explain in one sentence.",
+   "reference": "No",
+   "eval_type": "yesno",
+   "eval_spec": {
+    "answer": "no"
+   },
+   "criteria": "Affirming the consequent is invalid -> No",
+   "reasoning": true,
+   "short_answer": "no",
+   "expected_behaviour": "Reference answer: No"
+  },
+  {
+   "id": "MR01",
+   "split": "dev",
+   "category": "mathematical_reasoning",
+   "difficulty": "easy",
+   "prompt": "What is 15% of 240? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "36",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 36
+   },
+   "criteria": "Final numeric answer 36",
+   "reasoning": true,
+   "short_answer": "36",
+   "expected_behaviour": "Reference answer: 36"
+  },
+  {
+   "id": "MR02",
+   "split": "dev",
+   "category": "mathematical_reasoning",
+   "difficulty": "easy",
+   "prompt": "Solve for x: 3x + 7 = 28. Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "7",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 7
+   },
+   "criteria": "Final numeric answer 7",
+   "reasoning": true,
+   "short_answer": "7",
+   "expected_behaviour": "Reference answer: 7"
+  },
+  {
+   "id": "MR03",
+   "split": "test",
+   "category": "mathematical_reasoning",
+   "difficulty": "medium",
+   "prompt": "A train travels 180 km in 2.5 hours. What is its average speed in km/h? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "72",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 72
+   },
+   "criteria": "Final numeric answer 72",
+   "reasoning": true,
+   "short_answer": "72",
+   "expected_behaviour": "Reference answer: 72"
+  },
+  {
+   "id": "MS01",
+   "split": "dev",
+   "category": "multi_step",
+   "difficulty": "easy",
+   "prompt": "A shop sells pens at 12 rupees each. Riya buys 7 pens and pays with a 100 rupee note. How many rupees of change does she get? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "16",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 16
+   },
+   "criteria": "7*12=84; 100-84=16",
+   "reasoning": true,
+   "short_answer": "16",
+   "expected_behaviour": "Reference answer: 16"
+  },
+  {
+   "id": "MS02",
+   "split": "dev",
+   "category": "multi_step",
+   "difficulty": "medium",
+   "prompt": "Tom is twice as old as Sam. In 6 years the sum of their ages will be 48. How old is Tom now? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "24",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 24
+   },
+   "criteria": "s + 2s + 12 = 48 -> s=12, Tom=24",
+   "reasoning": true,
+   "short_answer": "24",
+   "expected_behaviour": "Reference answer: 24"
+  },
+  {
+   "id": "MS03",
+   "split": "test",
+   "category": "multi_step",
+   "difficulty": "hard",
+   "prompt": "A tank holds 600 litres and is 40% full. A pipe adds 25 litres per minute. How many minutes until the tank is completely full? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "14.4",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 14.4,
+    "tol": 0.05
+   },
+   "criteria": "40% of 600 = 240; remaining 360; 360/25 = 14.4",
+   "reasoning": true,
+   "short_answer": "14.4",
+   "expected_behaviour": "Reference answer: 14.4"
+  },
+  {
+   "id": "SU01",
+   "split": "dev",
+   "category": "summarization",
+   "difficulty": "easy",
+   "prompt": "Summarize the following passage in one sentence of at most 25 words.\n\nPassage: Bees visit flowers to collect nectar and pollen for food. As they move from flower to flower, grains of pollen stick to their bodies and are carried to other plants, allowing those plants to produce seeds and fruit. Because many crops depend on this process, a decline in bee populations can reduce harvests and raise food prices.",
+   "reference": "Bees pollinate plants while feeding on nectar, so falling bee numbers threaten crop yields and food prices.",
+   "eval_type": "summary",
+   "eval_spec": {
+    "max_words": 25,
+    "groups": [
+     [
+      "bee",
+      "bees"
+     ],
+     [
+      "pollinat",
+      "pollen"
+     ],
+     [
+      "crop",
+      "harvest",
+      "food"
+     ]
+    ]
+   },
+   "criteria": "<=25 words; mentions bees, pollination, crops/food",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "One concise sentence (<=25 words) covering bees, pollination and crop/food impact"
+  },
+  {
+   "id": "SU02",
+   "split": "dev",
+   "category": "summarization",
+   "difficulty": "medium",
+   "prompt": "Summarize the following passage in one sentence of at most 25 words.\n\nPassage: Many companies now allow employees to work from home several days a week. Supporters say this saves commuting time and lets people balance family duties, while critics worry that it weakens team bonds and makes it harder for new staff to learn from colleagues. Surveys of workers often show high satisfaction, but managers remain divided about its long-term effect on productivity.",
+   "reference": "Working from home saves time and improves balance, but critics fear weaker teamwork and managers are divided on productivity.",
+   "eval_type": "summary",
+   "eval_spec": {
+    "max_words": 25,
+    "groups": [
+     [
+      "remote",
+      "home",
+      "hybrid"
+     ],
+     [
+      "saves",
+      "flexib",
+      "balance",
+      "satisf",
+      "benefit"
+     ],
+     [
+      "critic",
+      "concern",
+      "worr",
+      "drawback",
+      "divided",
+      "weak"
+     ]
+    ]
+   },
+   "criteria": "<=25 words; covers remote work, benefits and concerns",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "One concise sentence (<=25 words) covering both benefits and concerns of remote work"
+  },
+  {
+   "id": "SU03",
+   "split": "test",
+   "category": "summarization",
+   "difficulty": "medium",
+   "prompt": "Summarize the following passage in one sentence of at most 25 words.\n\nPassage: Cities are often several degrees warmer than the countryside around them, an effect called the urban heat island. Dark roads and roofs absorb sunlight, concrete stores heat overnight, and there are fewer trees to provide shade and cool the air through evaporation. Planting trees, installing reflective roofs and adding green spaces can reduce the effect and lower summer energy use.",
+   "reference": "Cities run hotter than surroundings because dark surfaces and concrete trap heat, but trees and reflective roofs can cool them.",
+   "eval_type": "summary",
+   "eval_spec": {
+    "max_words": 25,
+    "groups": [
+     [
+      "urban",
+      "city",
+      "cities"
+     ],
+     [
+      "heat",
+      "warm",
+      "hot",
+      "temperature"
+     ],
+     [
+      "tree",
+      "green",
+      "reflective",
+      "plant",
+      "shade",
+      "cool"
+     ]
+    ]
+   },
+   "criteria": "<=25 words; covers urban heat, cause, mitigation",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "One concise sentence (<=25 words) covering urban heat, its cause and mitigation"
+  },
+  {
+   "id": "CO01",
+   "split": "dev",
+   "category": "coding",
+   "difficulty": "easy",
+   "prompt": "Write a Python function `is_palindrome(s)` that returns True if the string s reads the same forwards and backwards when case is ignored, otherwise False. Return only the code in one ```python block.",
+   "reference": "def is_palindrome(s): t=s.lower(); return t==t[::-1]",
+   "eval_type": "code",
+   "eval_spec": {
+    "func": "is_palindrome",
+    "tests": [
+     [
+      [
+       "Level"
+      ],
+      true
+     ],
+     [
+      [
+       "abc"
+      ],
+      false
+     ],
+     [
+      [
+       ""
+      ],
+      true
+     ],
+     [
+      [
+       "Aa"
+      ],
+      true
+     ],
+     [
+      [
+       "ab"
+      ],
+      false
+     ]
+    ]
+   },
+   "criteria": "Passes 5 unit tests",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "Reference answer: def is_palindrome(s): t=s.lower(); return t==t[::-1]"
+  },
+  {
+   "id": "CO02",
+   "split": "dev",
+   "category": "coding",
+   "difficulty": "easy",
+   "prompt": "Write a Python function `sum_even(nums)` that returns the sum of the even integers in the list nums (0 for an empty list). Return only the code in one ```python block.",
+   "reference": "def sum_even(nums): return sum(n for n in nums if n%2==0)",
+   "eval_type": "code",
+   "eval_spec": {
+    "func": "sum_even",
+    "tests": [
+     [
+      [
+       [
+        1,
+        2,
+        3,
+        4
+       ]
+      ],
+      6
+     ],
+     [
+      [
+       []
+      ],
+      0
+     ],
+     [
+      [
+       [
+        -2,
+        5
+       ]
+      ],
+      -2
+     ],
+     [
+      [
+       [
+        7,
+        9
+       ]
+      ],
+      0
+     ]
+    ]
+   },
+   "criteria": "Passes 4 unit tests",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "Reference answer: def sum_even(nums): return sum(n for n in nums if n%2==0)"
+  },
+  {
+   "id": "CO03",
+   "split": "test",
+   "category": "coding",
+   "difficulty": "medium",
+   "prompt": "Write a Python function `second_largest(nums)` that returns the second largest DISTINCT value in a list of integers, or None if there are fewer than two distinct values. Return only the code in one ```python block.",
+   "reference": "def second_largest(nums): d=sorted(set(nums)); return d[-2] if len(d)>1 else None",
+   "eval_type": "code",
+   "eval_spec": {
+    "func": "second_largest",
+    "tests": [
+     [
+      [
+       [
+        3,
+        1,
+        2
+       ]
+      ],
+      2
+     ],
+     [
+      [
+       [
+        5,
+        5
+       ]
+      ],
+      null
+     ],
+     [
+      [
+       [
+        1,
+        2,
+        2,
+        3
+       ]
+      ],
+      2
+     ],
+     [
+      [
+       [
+        -1,
+        -5,
+        -3
+       ]
+      ],
+      -3
+     ],
+     [
+      [
+       []
+      ],
+      null
+     ]
+    ]
+   },
+   "criteria": "Passes 5 unit tests",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "Reference answer: def second_largest(nums): d=sorted(set(nums)); return d[-2] if len(d)>1 else None"
+  },
+  {
+   "id": "AN01",
+   "split": "dev",
+   "category": "analytical",
+   "difficulty": "medium",
+   "prompt": "A store's monthly sales were 120 in January, 150 in February and 135 in March. Which month had the largest month-over-month percentage increase, and what was that percentage?",
+   "reference": "February, 25%",
+   "eval_type": "keywords",
+   "eval_spec": {
+    "groups": [
+     [
+      "february",
+      "feb"
+     ],
+     [
+      "25"
+     ]
+    ]
+   },
+   "criteria": "Names February and 25%",
+   "reasoning": true,
+   "short_answer": null,
+   "expected_behaviour": "Reference answer: February, 25%"
+  },
+  {
+   "id": "AN02",
+   "split": "dev",
+   "category": "analytical",
+   "difficulty": "medium",
+   "prompt": "Plan A costs 500 rupees per month flat. Plan B costs 200 rupees per month plus 10 rupees per GB used. At how many GB of monthly usage do the two plans cost the same? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "30",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 30
+   },
+   "criteria": "200 + 10x = 500 -> x = 30",
+   "reasoning": true,
+   "short_answer": "30",
+   "expected_behaviour": "Reference answer: 30"
+  },
+  {
+   "id": "AN03",
+   "split": "test",
+   "category": "analytical",
+   "difficulty": "medium",
+   "prompt": "Dataset: 4, 8, 6, 5, 3, 9, 100. Is the mean or the median more representative of the typical value, and why? State the median value.",
+   "reference": "Median (6) because 100 is an outlier that inflates the mean",
+   "eval_type": "keywords",
+   "eval_spec": {
+    "groups": [
+     [
+      "median"
+     ],
+     [
+      "6"
+     ],
+     [
+      "outlier",
+      "extreme",
+      "skew",
+      "100"
+     ]
+    ]
+   },
+   "criteria": "Chooses median, states 6, justifies with outlier",
+   "reasoning": true,
+   "short_answer": null,
+   "expected_behaviour": "Reference answer: Median (6) because 100 is an outlier that inflates the mean"
+  },
+  {
+   "id": "JS01",
+   "split": "dev",
+   "category": "structured_output",
+   "difficulty": "easy",
+   "prompt": "Return a JSON object with the keys \"name\" (string) and \"age\" (integer) for a person named Asha who is 30 years old. Output only the JSON.",
+   "reference": "{\"name\": \"Asha\", \"age\": 30}",
+   "eval_type": "structured",
+   "eval_spec": {
+    "fmt": "json_object",
+    "spec": {
+     "keys": [
+      "name",
+      "age"
+     ],
+     "values": {
+      "name": "Asha",
+      "age": 30
+     }
+    }
+   },
+   "criteria": "Valid JSON object, correct keys and values, no extra prose",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "Only a JSON object {\"name\": \"Asha\", \"age\": 30}"
+  },
+  {
+   "id": "JS02",
+   "split": "dev",
+   "category": "structured_output",
+   "difficulty": "medium",
+   "prompt": "Return a JSON array of exactly 3 objects, each with the keys \"city\" and \"country\", for Paris, Tokyo and Cairo in that order. Output only the JSON.",
+   "reference": "[{\"city\":\"Paris\",\"country\":\"France\"},{\"city\":\"Tokyo\",\"country\":\"Japan\"},{\"city\":\"Cairo\",\"country\":\"Egypt\"}]",
+   "eval_type": "structured",
+   "eval_spec": {
+    "fmt": "json_array",
+    "spec": {
+     "len": 3,
+     "keys": [
+      "city",
+      "country"
+     ],
+     "values_seq": [
+      {
+       "city": "Paris",
+       "country": "France"
+      },
+      {
+       "city": "Tokyo",
+       "country": "Japan"
+      },
+      {
+       "city": "Cairo",
+       "country": "Egypt"
+      }
+     ]
+    }
+   },
+   "criteria": "Valid JSON array of 3 correct objects in order",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "Only a JSON array of three city/country objects in the requested order"
+  },
+  {
+   "id": "JS03",
+   "split": "test",
+   "category": "structured_output",
+   "difficulty": "medium",
+   "prompt": "Produce a Markdown table with the columns Item, Qty, Price for: Pen 10 5; Book 2 120; Bag 1 450. Output only the table.",
+   "reference": "| Item | Qty | Price |",
+   "eval_type": "structured",
+   "eval_spec": {
+    "fmt": "md_table",
+    "spec": {
+     "columns": [
+      "Item",
+      "Qty",
+      "Price"
+     ],
+     "rows": [
+      [
+       "Pen",
+       "10",
+       "5"
+      ],
+      [
+       "Book",
+       "2",
+       "120"
+      ],
+      [
+       "Bag",
+       "1",
+       "450"
+      ]
+     ]
+    }
+   },
+   "criteria": "Valid Markdown table, correct header and 3 correct rows, nothing else",
+   "reasoning": false,
+   "short_answer": null,
+   "expected_behaviour": "Only a Markdown table with header Item|Qty|Price and the three rows"
+  },
+  {
+   "id": "AM01",
+   "split": "dev",
+   "category": "ambiguous_misleading",
+   "difficulty": "medium",
+   "prompt": "What is the capital of Georgia?",
+   "reference": "Ambiguous: country (Tbilisi) vs US state (Atlanta)",
+   "eval_type": "ambiguity",
+   "eval_spec": {
+    "all_terms": [
+     "Tbilisi",
+     "Atlanta"
+    ]
+   },
+   "criteria": "Asks which Georgia OR answers for both readings",
+   "reasoning": true,
+   "short_answer": null,
+   "expected_behaviour": "Either asks which Georgia is meant or gives both Tbilisi (country) and Atlanta (US state)"
+  },
+  {
+   "id": "AM02",
+   "split": "dev",
+   "category": "ambiguous_misleading",
+   "difficulty": "medium",
+   "prompt": "How many months of the year have 28 days? Think carefully, then give a short answer.",
+   "reference": "12 (all months)",
+   "eval_type": "keywords",
+   "eval_spec": {
+    "groups": [
+     [
+      "12",
+      "twelve",
+      "all 12",
+      "all of them",
+      "all months",
+      "every month",
+      "all twelve"
+     ]
+    ]
+   },
+   "criteria": "Answers 12 / all months (trap: February only)",
+   "reasoning": true,
+   "short_answer": null,
+   "expected_behaviour": "Reference answer: 12 (all months)"
+  },
+  {
+   "id": "AM03",
+   "split": "test",
+   "category": "ambiguous_misleading",
+   "difficulty": "hard",
+   "prompt": "A bat and a ball cost 1.10 dollars in total. The bat costs 1.00 dollar more than the ball. How much does the ball cost, in cents? Think step by step, then end with a line of the form 'Final answer: <number of cents>'.",
+   "reference": "5 cents",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answers": [
+     5,
+     0.05
+    ],
+    "tol": 0.001
+   },
+   "criteria": "Ball = 5 cents (intuitive wrong answer: 10)",
+   "reasoning": true,
+   "short_answer": "5",
+   "expected_behaviour": "Reference answer: 5 cents"
+  }
+ ],
+ "robustness": [
+  {
+   "id": "R1a",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V1_prompt_wording",
+   "variation_name": "terse + brevity request",
+   "prompt": "What is the capital of Australia? Answer with just the city name.",
+   "reference": "Canberra",
+   "criteria": "Canberra",
+   "expected_behaviour": "Canberra",
+   "eval_type": "contains_any",
+   "eval_spec": {
+    "answers": [
+     "Canberra"
+    ]
+   },
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R1b",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V1_prompt_wording",
+   "variation_name": "plain paraphrase",
+   "prompt": "Name Australia's capital city.",
+   "reference": "Canberra",
+   "criteria": "Canberra",
+   "expected_behaviour": "Canberra",
+   "eval_type": "contains_any",
+   "eval_spec": {
+    "answers": [
+     "Canberra"
+    ]
+   },
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R1c",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V1_prompt_wording",
+   "variation_name": "indirect phrasing",
+   "prompt": "I forgot: which city serves as the seat of government of Australia? One word please.",
+   "reference": "Canberra",
+   "criteria": "Canberra",
+   "expected_behaviour": "Canberra",
+   "eval_type": "contains_any",
+   "eval_spec": {
+    "answers": [
+     "Canberra"
+    ]
+   },
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R1d",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V1_prompt_wording",
+   "variation_name": "telegraphic / lower-case",
+   "prompt": "australia capital??",
+   "reference": "Canberra",
+   "criteria": "Canberra",
+   "expected_behaviour": "Canberra",
+   "eval_type": "contains_any",
+   "eval_spec": {
+    "answers": [
+     "Canberra"
+    ]
+   },
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R1e",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V1_prompt_wording",
+   "variation_name": "polite verbose",
+   "prompt": "Could you kindly tell me, in a full sentence, what the capital of Australia is?",
+   "reference": "Canberra",
+   "criteria": "Canberra",
+   "expected_behaviour": "Canberra",
+   "eval_type": "contains_any",
+   "eval_spec": {
+    "answers": [
+     "Canberra"
+    ]
+   },
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R1f",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V1_prompt_wording",
+   "variation_name": "math: symbolic",
+   "prompt": "What is 15% of 240? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "36",
+   "criteria": "36",
+   "expected_behaviour": "36",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 36
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R1g",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V1_prompt_wording",
+   "variation_name": "math: words",
+   "prompt": "Calculate fifteen percent of two hundred forty. Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "36",
+   "criteria": "36",
+   "expected_behaviour": "36",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 36
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R1h",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V1_prompt_wording",
+   "variation_name": "math: roundabout",
+   "prompt": "If you take 240 and find 15 percent of it, what do you get? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "36",
+   "criteria": "36",
+   "expected_behaviour": "36",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 36
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R2a",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V2_input_complexity",
+   "variation_name": "1 step",
+   "prompt": "Ravi has 12 apples. He buys 8 more. How many apples does he have? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "20",
+   "criteria": "20",
+   "expected_behaviour": "20",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 20
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R2b",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V2_input_complexity",
+   "variation_name": "2 steps",
+   "prompt": "Ravi has 12 apples. He buys 8 more and then gives 5 away. How many apples does he have? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "15",
+   "criteria": "15",
+   "expected_behaviour": "15",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 15
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R2c",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V2_input_complexity",
+   "variation_name": "3 steps",
+   "prompt": "Ravi has 12 apples. He buys 8 more, gives 5 away, then triples what he has left. How many apples does he have? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "45",
+   "criteria": "45",
+   "expected_behaviour": "45",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 45
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R2d",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V2_input_complexity",
+   "variation_name": "4 steps",
+   "prompt": "Ravi has 12 apples. He buys 8 more, gives 5 away, triples what he has left, eats 5, and finally shares the rest equally among himself and 3 friends (4 people in total). How many apples does each person get? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "10",
+   "criteria": "10",
+   "expected_behaviour": "10",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 10
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R3a",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V3_ambiguous_instructions",
+   "variation_name": "missing referent (edit)",
+   "prompt": "Make it shorter.",
+   "reference": "Asks what text to shorten (or flags missing input)",
+   "criteria": "Asks what text to shorten (or flags missing input)",
+   "expected_behaviour": "Asks what text to shorten (or flags missing input)",
+   "eval_type": "ambiguity",
+   "eval_spec": {},
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R3b",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V3_ambiguous_instructions",
+   "variation_name": "pronoun without antecedent",
+   "prompt": "Is it safe to eat?",
+   "reference": "Asks what 'it' refers to",
+   "criteria": "Asks what 'it' refers to",
+   "expected_behaviour": "Asks what 'it' refers to",
+   "eval_type": "ambiguity",
+   "eval_spec": {},
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R3c",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V3_ambiguous_instructions",
+   "variation_name": "unspecified units",
+   "prompt": "Convert 100 to the right units.",
+   "reference": "Asks which quantity/units",
+   "criteria": "Asks which quantity/units",
+   "expected_behaviour": "Asks which quantity/units",
+   "eval_type": "ambiguity",
+   "eval_spec": {},
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R3d",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V3_ambiguous_instructions",
+   "variation_name": "unspecified language",
+   "prompt": "Translate this into the usual language.",
+   "reference": "Asks for the text and the target language",
+   "criteria": "Asks for the text and the target language",
+   "expected_behaviour": "Asks for the text and the target language",
+   "eval_type": "ambiguity",
+   "eval_spec": {},
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R4a",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V4_math_complexity",
+   "variation_name": "level 1: addition",
+   "prompt": "What is 48 + 27? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "75",
+   "criteria": "75",
+   "expected_behaviour": "75",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 75
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R4b",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V4_math_complexity",
+   "variation_name": "level 2: 2-digit product",
+   "prompt": "What is 17 multiplied by 23? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "391",
+   "criteria": "391",
+   "expected_behaviour": "391",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 391
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R4c",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V4_math_complexity",
+   "variation_name": "level 3: linear equation",
+   "prompt": "Solve for x: 5x - 9 = 26. Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "7",
+   "criteria": "7",
+   "expected_behaviour": "7",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 7
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R4d",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V4_math_complexity",
+   "variation_name": "level 4: quadratic roots",
+   "prompt": "What is the sum of the roots of x^2 - 9x + 14 = 0? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "9",
+   "criteria": "9",
+   "expected_behaviour": "9",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 9
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R4e",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V4_math_complexity",
+   "variation_name": "level 5: compound interest",
+   "prompt": "12000 rupees are invested at 10% interest per year, compounded annually. What is the total amount after 2 years, in rupees? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+   "reference": "14520",
+   "criteria": "14520",
+   "expected_behaviour": "14520",
+   "eval_type": "numeric",
+   "eval_spec": {
+    "answer": 14520,
+    "tol": 0.5
+   },
+   "reasoning": true,
+   "short_answer": null
+  },
+  {
+   "id": "R5a",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V5_structured_formats",
+   "variation_name": "JSON object",
+   "prompt": "Return a JSON object with keys name, age, city for Meera, 28, Pune (age as an integer). Output only the JSON.",
+   "reference": "JSON object",
+   "criteria": "JSON object",
+   "expected_behaviour": "JSON object",
+   "eval_type": "structured",
+   "eval_spec": {
+    "fmt": "json_object",
+    "spec": {
+     "keys": [
+      "name",
+      "age",
+      "city"
+     ],
+     "values": {
+      "name": "Meera",
+      "age": 28,
+      "city": "Pune"
+     }
+    }
+   },
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R5b",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V5_structured_formats",
+   "variation_name": "JSON array of one object",
+   "prompt": "Return a JSON array containing exactly one object with keys name, age, city for Meera, 28, Pune (age as an integer). Output only the JSON.",
+   "reference": "JSON array",
+   "criteria": "JSON array",
+   "expected_behaviour": "JSON array",
+   "eval_type": "structured",
+   "eval_spec": {
+    "fmt": "json_array",
+    "spec": {
+     "len": 1,
+     "keys": [
+      "name",
+      "age",
+      "city"
+     ],
+     "values_seq": [
+      {
+       "name": "Meera",
+       "age": 28,
+       "city": "Pune"
+      }
+     ]
+    }
+   },
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R5c",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V5_structured_formats",
+   "variation_name": "CSV",
+   "prompt": "Return CSV with the header name,age,city and one data row for Meera, 28, Pune. Output only the CSV.",
+   "reference": "CSV",
+   "criteria": "CSV",
+   "expected_behaviour": "CSV",
+   "eval_type": "structured",
+   "eval_spec": {
+    "fmt": "csv",
+    "spec": {
+     "columns": [
+      "name",
+      "age",
+      "city"
+     ],
+     "rows": [
+      [
+       "Meera",
+       "28",
+       "Pune"
+      ]
+     ]
+    }
+   },
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R5d",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V5_structured_formats",
+   "variation_name": "Markdown table",
+   "prompt": "Return a Markdown table with columns name, age, city and one row for Meera, 28, Pune. Output only the table.",
+   "reference": "Markdown table",
+   "criteria": "Markdown table",
+   "expected_behaviour": "Markdown table",
+   "eval_type": "structured",
+   "eval_spec": {
+    "fmt": "md_table",
+    "spec": {
+     "columns": [
+      "name",
+      "age",
+      "city"
+     ],
+     "rows": [
+      [
+       "Meera",
+       "28",
+       "Pune"
+      ]
+     ]
+    }
+   },
+   "reasoning": false,
+   "short_answer": null
+  },
+  {
+   "id": "R5e",
+   "split": "robustness",
+   "category": "robustness",
+   "difficulty": "n/a",
+   "variation": "V5_structured_formats",
+   "variation_name": "key: value lines",
+   "prompt": "Return exactly three lines of the form 'key: value' with keys name, age, city for Meera, 28, Pune. Output only those lines.",
+   "reference": "key: value lines",
+   "criteria": "key: value lines",
+   "expected_behaviour": "key: value lines",
+   "eval_type": "structured",
+   "eval_spec": {
+    "fmt": "key_value",
+    "spec": {
+     "keys": [
+      "name",
+      "age",
+      "city"
+     ],
+     "values": {
+      "name": "Meera",
+      "age": 28,
+      "city": "Pune"
+     }
+    }
+   },
+   "reasoning": false,
+   "short_answer": null
+  }
+ ]
+}

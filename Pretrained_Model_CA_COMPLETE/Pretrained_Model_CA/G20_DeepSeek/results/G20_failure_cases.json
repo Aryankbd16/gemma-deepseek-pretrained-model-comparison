@@ -1,0 +1,122 @@
+[
+  {
+    "id": "IF02",
+    "category": "instruction_following",
+    "input": "Write exactly one sentence about the ocean without using the word 'the'.",
+    "expected_behaviour": "A single sentence about the ocean that never uses the word 'the'",
+    "actual_output": "Oceans are a vast and expansive body of water that spans the globe and holds countless species of fish.",
+    "failure_type": "Instruction-following failure",
+    "explanation": "Automatic evaluator marked this FAIL ({\"checks\": {\"n_sentences\": true, \"no_word_the\": false}}). Extracted='Oceans are a vast and expansive body of water that spans the globe and holds cou'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "SU02",
+    "category": "summarization",
+    "input": "Summarize the following passage in one sentence of at most 25 words.\n\nPassage: Many companies now allow employees to work from home several days a week. Supporters say this saves commuting time and lets people balance family duties, while critics worry that it weakens team bonds and makes it harder for new staff to learn from colleagues. Surveys of workers often show high satisfaction, but managers remain divided about its long-term effect on productivity.",
+    "expected_behaviour": "One concise sentence (<=25 words) covering both benefits and concerns of remote work",
+    "actual_output": "Many companies allow remote work, with supporters claiming benefits but critics fearing reduced team bonds and learning challenges, though surveys show high satisfaction and uncertain productivity impacts.",
+    "failure_type": "Summarisation constraint or coverage failure",
+    "explanation": "Automatic evaluator marked this FAIL ({\"checks\": {\"max_words\": false}, \"group_hits\": [true, true, true]}). Extracted='Many companies allow remote work, with supporters claiming benefits but critics '. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "AM01",
+    "category": "ambiguous_misleading",
+    "input": "What is the capital of Georgia?",
+    "expected_behaviour": "Either asks which Georgia is meant or gives both Tbilisi (country) and Atlanta (US state)",
+    "actual_output": "The capital of Georgia is Tbilisi.",
+    "failure_type": "Ambiguous-prompt mis-handling",
+    "explanation": "Automatic evaluator marked this FAIL ({\"asks_or_flags_ambiguity\": false, \"covers_all_readings\": false}). Extracted='The capital of Georgia is Tbilisi.'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "AM02",
+    "category": "ambiguous_misleading",
+    "input": "How many months of the year have 28 days? Think carefully, then give a short answer.",
+    "expected_behaviour": "Reference answer: 12 (all months)",
+    "actual_output": "Only one month of the year has exactly 28 days, which is February.",
+    "failure_type": "Analytical / content-coverage failure",
+    "explanation": "Automatic evaluator marked this FAIL ({\"group_hits\": [false]}). Extracted='Only one month of the year has exactly 28 days, which is February.'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "GK03",
+    "category": "general_knowledge",
+    "input": "In which year did the Chernobyl nuclear power plant accident occur? Answer with just the name or number, no explanation.",
+    "expected_behaviour": "Reference answer: 1986",
+    "actual_output": "1985",
+    "failure_type": "Factual inaccuracy (possible hallucination)",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='1985'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "MS03",
+    "category": "multi_step",
+    "input": "A tank holds 600 litres and is 40% full. A pipe adds 25 litres per minute. How many minutes until the tank is completely full? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "expected_behaviour": "Reference answer: 14.4",
+    "actual_output": "**Solution:**\n\n1. **Determine the current volume of water in the tank:**\n   \n   The tank's total capacity is 600 litres, and it is currently 40% full.\n   \n   \\[\n   \\text{Current Volume} = 600 \\, \\text{litres} \\times 0.40 = 240 \\, \\text{litres}\n   \\]\n\n2. **Calculate the remaining volume needed to fill the tank:**\n   \n   \\[\n   \\text{Volume Needed} = 600 \\, \\text{litres} - 240 \\, \\text{litres} = 360 \\, \\text{litres}\n   \\]\n\n3. **Determine the time required to fill the remaining volume:**\n   \n   The pipe adds water at a rate of 25 litres per minute.\n   \n   \\[\n   \\text{Time} = \\frac{\\text{Volume Needed}}{\\text{Flow Rate}} = \\frac{360 \\, \\text{litres}}{25 \\, \\text{litres/minute}} = 14.4 \\, \\text{minutes}\n   \\]\n\n4. **Round the time to the nearest whole number:**\n   \n   \\[\n   \\text{Time} \\approx 14",
+    "failure_type": "Mathematical / multi-step reasoning error",
+    "explanation": "Automatic evaluator marked this FAIL ({}). Extracted='14'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R3b",
+    "category": "robustness",
+    "input": "Is it safe to eat?",
+    "expected_behaviour": "Asks what 'it' refers to",
+    "actual_output": "The question of whether it's safe to eat involves a multifaceted approach that encompasses various factors, each contributing to the overall safety of consuming food. Here's a structured summary of the considerations:\n\n1. **Nutritional and Health Considerations:**\n   - **Heavy Metals and Pathogens:** Foods containing heavy metals like lead or mercury can be harmful if ingested in large quantities. Similarly, certain bacteria, viruses, and pathogens present in food can cause illness.\n   - **Foodborne Illnesses:** Pathogens like E. coli, salmonella, and norovirus can cause serious infections. Preparation and storage methods play a crucial role in preventing their spread.\n   - **Allergies:** Consuming allergens can lead to severe reactions. Awareness and avoidance of known allergens are essen",
+    "failure_type": "Ambiguous-prompt mis-handling",
+    "explanation": "Automatic evaluator marked this FAIL ({\"asks_or_flags_ambiguity\": false, \"covers_all_readings\": false}). Extracted=\"The question of whether it's safe to eat involves a multifaceted approach that e\". Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "R3c",
+    "category": "robustness",
+    "input": "Convert 100 to the right units.",
+    "expected_behaviour": "Asks which quantity/units",
+    "actual_output": "**Solution:**\n\nWe need to convert **100 centimeters (cm)** to **meters (m)**.\n\n1. **Understand the Conversion Factor:**\n   \n   \\[\n   1\\ \\text{meter} = 100\\ \\text{centimeters}\n   \\]\n\n2. **Set Up the Conversion:**\n   \n   \\[\n   100\\ \\text{cm} \\times \\left(\\frac{1\\ \\text{m}}{100\\ \\text{cm}}\\right)\n   \\]\n\n3. **Perform the Calculation:**\n   \n   \\[\n   100\\ \\text{cm} \\times \\left(\\frac{1\\ \\text{m}}{100\\ \\text{cm}}\\right) = 1\\ \\text{m}\n   \\]\n\n4. **Final Answer:**\n   \n   \\[\n   \\boxed{1\\ \\text{m}}\n   \\]",
+    "failure_type": "Ambiguous-prompt mis-handling",
+    "explanation": "Automatic evaluator marked this FAIL ({\"asks_or_flags_ambiguity\": false, \"covers_all_readings\": false}). Extracted='**Solution:**\\n\\nWe need to convert **100 centimeters (cm)** to **meters (m)**.\\n\\n1'. Manual review recommended before citing in the report.",
+    "observed": true
+  },
+  {
+    "id": "LEN256",
+    "category": "context_length",
+    "input": "~754-token log with one secret code in the middle",
+    "expected_behaviour": "retrieve the code K7-4921",
+    "actual_output": "",
+    "failure_type": "Context-length limitation (needle not retrieved)",
+    "explanation": "Observed in the input-length experiment at the stated prompt length.",
+    "observed": true
+  },
+  {
+    "id": "LEN1024",
+    "category": "context_length",
+    "input": "~1480-token log with one secret code in the middle",
+    "expected_behaviour": "retrieve the code K7-4921",
+    "actual_output": "",
+    "failure_type": "Context-length limitation (needle not retrieved)",
+    "explanation": "Observed in the input-length experiment at the stated prompt length.",
+    "observed": true
+  },
+  {
+    "id": "LEN2048",
+    "category": "context_length",
+    "input": "~2209-token log with one secret code in the middle",
+    "expected_behaviour": "retrieve the code K7-4921",
+    "actual_output": "",
+    "failure_type": "Context-length limitation (needle not retrieved)",
+    "explanation": "Observed in the input-length experiment at the stated prompt length.",
+    "observed": true
+  },
+  {
+    "id": "LEN4096",
+    "category": "context_length",
+    "input": "~4445-token log with one secret code in the middle",
+    "expected_behaviour": "retrieve the code K7-4921",
+    "actual_output": "",
+    "failure_type": "Context-length limitation (needle not retrieved)",
+    "explanation": "Observed in the input-length experiment at the stated prompt length.",
+    "observed": true
+  }
+]

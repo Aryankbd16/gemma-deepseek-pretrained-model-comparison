@@ -1,0 +1,189 @@
+{
+  "metadata": {
+    "model_key": "G19",
+    "model_id": "google/gemma-2b-it",
+    "source_file": "2605.20032_page_4.txt",
+    "source_description": "Supplied TAGFD/MoE research text",
+    "task": "structured_information_extraction_and_passage_classification",
+    "classification_labels": [
+      "overall_moe_architecture",
+      "standard_moe_layer",
+      "ego_decoupled_moe",
+      "expert_specialization",
+      "graph_expert",
+      "semantic_expert",
+      "global_expert",
+      "context_informed_gating"
+    ],
+    "reference_annotation_method": "Manual category assignment based on the supplied passage content and section headings"
+  },
+  "extraction": {
+    "parsed": true,
+    "structured_output": {
+      "research_topic": "Short topic name",
+      "architecture": "Multi-layer Ego-Decoupled MoE",
+      "moe_layer": "Ego-Decoupled MoE",
+      "ego_decoupled_layer": "Ego-Decoupled MoE",
+      "experts": [
+        {
+          "name": "graph",
+          "cue": "signal captured",
+          "method": "operation described"
+        },
+        {
+          "name": "semantic",
+          "cue": "signal captured",
+          "method": "operation described"
+        },
+        {
+          "name": "global",
+          "cue": "signal captured",
+          "method": "operation described"
+        }
+      ],
+      "gating_model": "Context-informed gating model",
+      "source_limitations": [
+        "State clearly if the supplied text does not describe data, labels, or measured results"
+      ]
+    },
+    "raw_model_output": "```json\n{\n  \"research_topic\": \"Short topic name\",\n  \"architecture\": \"Multi-layer Ego-Decoupled MoE\",\n  \"moe_layer\": \"Ego-Decoupled MoE\",\n  \"ego_decoupled_layer\": \"Ego-Decoupled MoE\",\n  \"experts\": [\n    {\n      \"name\": \"graph\",\n      \"cue\": \"signal captured\",\n      \"method\": \"operation described\"\n    },\n    {\n      \"name\": \"semantic\",\n      \"cue\": \"signal captured\",\n      \"method\": \"operation described\"\n    },\n    {\n      \"name\": \"global\",\n      \"cue\": \"signal captured\",\n      \"method\": \"operation described\"\n    }\n  ],\n  \"gating_model\": \"Context-informed gating model\",\n  \"source_limitations\": [\"State clearly if the supplied text does not describe data, labels, or measured results\"]\n}\n```"
+  },
+  "classification": {
+    "records": [
+      {
+        "id": "P01",
+        "reference_label": "overall_moe_architecture",
+        "predicted_label": "overall_moe_architecture",
+        "correct": true,
+        "text": "While the pre-trained LLM-based encoder captures deep semantic information, spotting evolving camouflaged fraudsters requires the effective and adaptive integration of other fraud-indicative cues, ranging from local structural patterns~\\cite{pan2025label} to global semantic distributions~\\cite{jin2021anemone}. To address this challenge, we adopt a MoE architecture~\\cite{li2026towards}, where each expert is highly specialized and capable of capturing one type of discriminative fraud-indicative cues, providing strong and complementary representations for effective detection against camouflaged fraud~\\cite{tan2025bisecle}. To model the interactions among heterogeneous cues, we further employ a multi-layer MoE design, where each MoE layer adaptively routes node representations to different experts and refines the fused representation, which hierarchically integrates the fraud-indicative cues. Moreover, a gating network complements the experts by dynamically learning to weight their contributions for each node. This adaptive mechanism allows the model to flexibly integrate fraud-indicative cues without relying on dataset-specific heuristics or domain knowledge, ensuring the most informative cues are prioritized."
+      },
+      {
+        "id": "P02",
+        "reference_label": "standard_moe_layer",
+        "predicted_label": "unparsed",
+        "correct": false,
+        "text": "As the essential building block of \\ourmethod, we first introduce the proposed MoE layer, which adaptively routes and integrates heterogeneous fraud-indicative cues. \nSpecifically, taking the $l$-th layer as an example, a standard MoE layer can be written as:"
+      },
+      {
+        "id": "P03",
+        "reference_label": "ego_decoupled_moe",
+        "predicted_label": "ego_decoupled_moe",
+        "correct": true,
+        "text": "Despite its effectiveness in modeling heterogeneous fraud-indicative cues, this generic formulation does not explicitly enforce functional decoupling among experts. Similar to the over-smoothing effect in graph neural networks~\\cite{rusch2023survey}, redundant expert functions can produce overly homogeneous representations~\\cite{liu2023diversifying}, which may obscure critical malicious cues. To address this issue, we propose an ego-decoupled MoE layer that separates expert-specific deviation signals from shared ego features:\n\\begin{equation}\n\\mathbf{H}^{[l]} = \\mathbf{H}^{[l-1]} + \\sum_{k} \\mathrm{diag}\\!\\big(g_k^{[l]}(\\mathbf{H}^{[l-1]}, \\mathbf{A}) \\big) e_k^{[l]}(\\mathbf{H}^{[l-1]}, \\mathbf{A}).\n\\end{equation} \nBy isolating shared ego embeddings, each expert focuses on complementary fraud signals rather than redundant information. Additionally, the skip connection integrates multi-hop graph features across layers, further enhancing the inter-layer information communication within the MoE model for fraud detection~\\cite{dong2025spacegnn}."
+      },
+      {
+        "id": "P04",
+        "reference_label": "expert_specialization",
+        "predicted_label": "graph_expert",
+        "correct": false,
+        "text": "MoE architectures typically achieve expert functional divergence through large-scale unsupervised pretraining~\\cite{fedus2022switch} or domain partitioning~\\cite{gururangan2022demix} with supervision. However, in unsupervised TAGFD, neither human annotations nor sufficiently large curated datasets are available, which hinders the operationally identical experts from learning diverse and discriminative fraud-indicative cues. Therefore, to ensure functionality divergence, we explicitly design the operation of each expert $e_k^{[l]}$ to specialize in a distinct fraud-indicative cue, ensuring functional differentiation and capturing complementary cues critical for detecting camouflaged fraudsters. Concretely, three specialized experts, i.e., the graph expert $e_\\text{graph}^{[l]}$, the semantic expert, and the global expert, are instantiated in \\ourmethod, which are defined as follows."
+      },
+      {
+        "id": "P05",
+        "reference_label": "graph_expert",
+        "predicted_label": "semantic_expert",
+        "correct": false,
+        "text": "\\noindent \\textbf{Graph Expert.} The graph expert focuses on capturing \\textit{structural deviation} signals, thereby spotting any unusual structural patterns that cannot be encoded with text attributes alone. We first encode local structural patterns using a GCN layer and compute the residual between ego representations and aggregated neighborhood features to expose anomalous structural discrepancies. Specifically, for each node $v_i$ with representation $\\mathbf{h}^{[l-1]}_i$, the operation of the graph expert can be written as:\n\\begin{equation}\ne_\\text{graph}^{[l]}(\\mathbf{h}^{[l-1]}_i, \\mathbf{A})\n=\n\\mathbf{h}_i^{[l-1]}\n-\n\\operatorname{GCN}\\!\\left(\\mathbf{h}_i^{[l-1]}, \\{\\mathbf{h}_j^{[l-1]}\\}_{v_j\\in\\mathcal{N}(v_i)}\\right).\n\\end{equation}"
+      },
+      {
+        "id": "P06",
+        "reference_label": "semantic_expert",
+        "predicted_label": "global_expert",
+        "correct": false,
+        "text": "\\noindent \\textbf{Semantic Expert.} To precisely spot any malicious semantic cues, the semantic expert employs an MLP-based autoencoder to learn a compact representation of benign semantics, and uses the difference between that and the input embedding to reveal \\textit{semantic deviations}:\n\\begin{equation}\ne_\\text{semantic}^l(\\mathbf{h}_i^{[l-1]}) = \\mathbf{h}_i^{[l-1]} - \\text{Decoder}(\\text{Encoder}(\\mathbf{h}_i^{[l-1]})).\n\\end{equation}\nHence, the semantic deviation encodes fine-grained malicious cues of the text, which is critical for detecting semantically camouflaged fraudsters that mimic normal behaviors."
+      },
+      {
+        "id": "P07",
+        "reference_label": "global_expert",
+        "predicted_label": "context_informed_gating",
+        "correct": false,
+        "text": "\\noindent \\textbf{Global Expert.} While the graph and semantic experts focus on local deviations, fraudsters are inherently rare instances that deviate from the overall data distribution, which can be exposed from a global perspective. In light of this, we utilized the global expert to measure each node’s discrepancy from the dominant benign prototype:\n\\begin{equation}\ne_\\text{global}^{[l]}(\\mathbf{h}_i^{[l-1]}) = \\mathbf{h}_i^{[l-1]} - \\text{MLP}(\\mathbf{h}_\\text{global}^{[l-1]}), \n\\end{equation}\nwhere $\\mathbf{h}_\\text{global}^{[l-1]} = \\frac{1}{n} \\sum_{v_j \\in \\mathcal{V}} \\mathbf{h}_j^{[l-1]}$.\nThe estimated \\textit{global deviation} characterizes how much a node diverges from the majority, complementing the local structural and semantic deviations captured by other experts."
+      },
+      {
+        "id": "P08",
+        "reference_label": "context_informed_gating",
+        "predicted_label": "unparsed",
+        "correct": false,
+        "text": "\\subsubsection{Context-informed Gating Model}\nAfter embedding extraction by specialized experts, a gating model is responsible for dynamically weighting their contributions for every node, enabling adaptive integration of fraud-indicative cues without relying on prior assumptions or domain-specific knowledge. In standard MoE architectures, gating is typically implemented using input-dependent mechanisms such as self-attention~\\cite{lewis2021base}. However, in TAGFD, the importance of different fraud-indicative cues is not solely determined by a node’s attributes, but is highly dependent on its local context. For example, in topic-focused communities, abnormal connection patterns often provide stronger evidence of fraud, whereas in more diverse communities, semantic irregularities such as misleading or toxic content become more informative. Relying only on ego features may therefore lead to suboptimal expert selection. Motivated by this observation, we propose a context-informed gating model that jointly considers the ego node representation and its local neighborhood context when determining expert contributions to allow for more fine-grained adaptation."
+      }
+    ],
+    "metrics": {
+      "accuracy": 0.25,
+      "micro_precision": 0.25,
+      "micro_recall": 0.25,
+      "micro_f1": 0.25,
+      "macro_precision": 0.25,
+      "macro_recall": 0.25,
+      "macro_f1": 0.25,
+      "support": 8,
+      "per_class": {
+        "overall_moe_architecture": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "standard_moe_layer": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "ego_decoupled_moe": {
+          "tp": 1,
+          "fp": 0,
+          "fn": 0,
+          "precision": 1.0,
+          "recall": 1.0,
+          "f1": 1.0
+        },
+        "expert_specialization": {
+          "tp": 0,
+          "fp": 0,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "graph_expert": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "semantic_expert": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "global_expert": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        },
+        "context_informed_gating": {
+          "tp": 0,
+          "fp": 1,
+          "fn": 1,
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0
+        }
+      },
+      "note": "Scores compare model labels with the manually annotated reference category for each passage."
+    },
+    "raw_model_output": "[\n  { \"id\": \"P01\", \"label\": \"overall_moe_architecture\" },\n  { \"id\": \"P03\", \"label\": \"ego_decoupled_moe\" },\n  { \"id\": \"P04\", \"label\": \"graph_expert\" },\n  { \"id\": \"P05\", \"label\": \"semantic_expert\" },\n  { \"id\": \"P06\", \"label\": \"global_expert\" },\n  { \"id\": \"P07\", \"label\": \"context_informed_gating\" }\n]"
+  }
+}

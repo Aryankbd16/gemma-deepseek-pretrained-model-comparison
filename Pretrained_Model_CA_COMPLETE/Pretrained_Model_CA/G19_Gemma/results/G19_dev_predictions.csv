@@ -1,0 +1,149 @@
+id,category,prompt,final_output,seconds,new_tokens,tokens_per_sec,hit_max_tokens,correct,extracted,observation
+GK01,general_knowledge,"What is the chemical symbol for gold? Answer with just the name or number, no explanation.",The chemical symbol for gold is Au. It is an element in the periodic table with atomic number 79.,0.6673217559998648,24,35.964659902388775,False,True,The chemical symbol for gold is Au. It is an element in the periodic table with atomic number 79.,PASS; 24 new tokens; 0.7s
+GK02,general_knowledge,"What is the capital city of Australia? Answer with just the name or number, no explanation.","The capital city of Australia is Canberra, which is located in the Australian Capital Territory.",0.462343379999993,18,38.93210280203487,False,True,"The capital city of Australia is Canberra, which is located in the Australian Capital Territory.",PASS; 18 new tokens; 0.5s
+IF01,instruction_following,"List exactly three fruits, one per line, with no numbering, no bullets and no extra text.","Sure, here are three fruits:
+
+- Apple
+- Banana
+- Strawberry",0.44670455699997547,17,38.05647319599861,False,False,"Sure, here are three fruits:
+
+- Apple
+- Banana
+- Strawberry","FAIL; 17 new tokens; 0.4s; extracted='Sure, here are three fruits:\n\n- Apple\n- Banana\n- Strawberry'"
+IF02,instruction_following,Write exactly one sentence about the ocean without using the word 'the'.,"The vast expanse of the ocean stretches out, encompassing a myriad of mysteries and wonders.",0.4551176600000417,18,39.5502121363481,False,False,"The vast expanse of the ocean stretches out, encompassing a myriad of mysteries and wonders.","FAIL; 18 new tokens; 0.5s; extracted='The vast expanse of the ocean stretches out, encompassing a '"
+LR01,logical_reasoning,"All bloops are razzies. All razzies are lazzies. Are all bloops definitely lazzies? Answer 'Yes' or 'No' first, then explain in one sentence.","Answer: No
+
+Explanation: The premise of the question is logically incorrect. Just because some bloops are razzies, it does not mean that all razzies are bloops.",0.9950445710001077,39,39.1942241952052,False,False,no,FAIL; 39 new tokens; 1.0s; extracted='no'
+LR02,logical_reasoning,"If it rains, the match is cancelled. The match was not cancelled. Can we conclude that it did not rain? Answer 'Yes' or 'No' first, then explain in one sentence.","No.
+
+The fact that the match was not cancelled means that it did not rain.",0.4841633749999801,19,39.24295182385653,False,False,no,FAIL; 19 new tokens; 0.5s; extracted='no'
+MR01,mathematical_reasoning,"What is 15% of 240? Think step by step, then end with a line of the form 'Final answer: <number>'.","Sure, here's the solution:
+
+15% of 240 = (0.15) * 240 = 36
+
+Final answer: 36",1.0507104170001185,41,39.02121777478806,False,True,36,PASS; 41 new tokens; 1.1s
+MR02,mathematical_reasoning,"Solve for x: 3x + 7 = 28. Think step by step, then end with a line of the form 'Final answer: <number>'.","3x + 7 = 28
+
+3x = 28 - 7
+
+3x = 21
+
+x = 7
+
+Final answer: 7",0.9947467409999717,38,38.200678055803834,False,True,7,PASS; 38 new tokens; 1.0s
+MS01,multi_step,"A shop sells pens at 12 rupees each. Riya buys 7 pens and pays with a 100 rupee note. How many rupees of change does she get? Think step by step, then end with a line of the form 'Final answer: <number>'.","**Step 1:** Calculate the number of pens Riya bought: 7 pens
+
+**Step 2:** Calculate the number of rupees she paid for the pens: 12 rupees/pen * 7 pens = 84 rupees
+
+**Step 3:** Calculate the amount of change she gets: 100 rupees - 84 rupees = 16 rupees
+
+**Final answer: 16**",2.810005917000126,88,31.316660035344707,False,True,16,PASS; 88 new tokens; 2.8s
+MS02,multi_step,"Tom is twice as old as Sam. In 6 years the sum of their ages will be 48. How old is Tom now? Think step by step, then end with a line of the form 'Final answer: <number>'.","Let x be Sam's age.
+
+Then, Tom's age is 2x.
+
+In 6 years, Sam's age will be x + 6.
+
+In 6 years, Tom's age will be 2x + 6.
+
+The sum of their ages in 6 years will be x + 6 = 2x + 6 = 48.
+
+Solving for x, we get x = 18.
+
+Therefore, Sam's age is 18, and Tom's age is 2(18) = 36.
+
+Final answer: Tom is 36 years old.",3.566961302999971,139,38.96874347447922,False,False,36,FAIL; 139 new tokens; 3.6s; extracted='36'
+SU01,summarization,"Summarize the following passage in one sentence of at most 25 words.
+
+Passage: Bees visit flowers to collect nectar and pollen for food. As they move from flower to flower, grains of pollen stick to their bodies and are carried to other plants, allowing those plants to produce seeds and fruit. Because many crops depend on this process, a decline in bee populations can reduce harvests and raise food prices.","Sure, here's a summary in one sentence:
+
+Bees collect nectar and pollen from flowers to produce food for themselves and other plants.",0.758317869999928,29,38.24253805334003,False,True,"Sure, here's a summary in one sentence:
+
+Bees collect nectar and pollen from flowers to produce food for themselves and other plants.",PASS; 29 new tokens; 0.8s
+SU02,summarization,"Summarize the following passage in one sentence of at most 25 words.
+
+Passage: Many companies now allow employees to work from home several days a week. Supporters say this saves commuting time and lets people balance family duties, while critics worry that it weakens team bonds and makes it harder for new staff to learn from colleagues. Surveys of workers often show high satisfaction, but managers remain divided about its long-term effect on productivity.","Sure, here's a summary of the passage in one sentence:
+
+The passage discusses the impact of remote work on company culture and employee satisfaction.",0.8221154880000086,31,37.707597597285115,False,False,"Sure, here's a summary of the passage in one sentence:
+
+The passage discusses the impact of remote work on company culture and employee satisfaction.","FAIL; 31 new tokens; 0.8s; extracted=""Sure, here's a summary of the passage in one sentence:\n\nThe """
+CO01,coding,"Write a Python function `is_palindrome(s)` that returns True if the string s reads the same forwards and backwards when case is ignored, otherwise False. Return only the code in one ```python block.","```python
+def is_palindrome(s):
+    return s == s[::-1]
+```",0.5781742319998102,22,38.05081372081491,False,False,"def is_palindrome(s):
+    return s == s[::-1]",FAIL; 22 new tokens; 0.6s; extracted='def is_palindrome(s):\n    return s == s[::-1]'
+CO02,coding,Write a Python function `sum_even(nums)` that returns the sum of the even integers in the list nums (0 for an empty list). Return only the code in one ```python block.,"```python
+def sum_even(nums):
+  sum = 0
+  for num in nums:
+    if num % 2 == 0:
+      sum += num
+  return sum
+```",1.2057565109998905,46,38.15032270640932,False,True,"def sum_even(nums):
+  sum = 0
+  for num in nums:
+    if num % 2 == 0:
+      sum += num
+  return sum",PASS; 46 new tokens; 1.2s
+AN01,analytical,"A store's monthly sales were 120 in January, 150 in February and 135 in March. Which month had the largest month-over-month percentage increase, and what was that percentage?","The month with the largest month-over-month percentage increase was March, with a 15% increase.",0.6253723160000391,24,38.37713852366708,False,False,"The month with the largest month-over-month percentage increase was March, with a 15% increase.",FAIL; 24 new tokens; 0.6s; extracted='The month with the largest month-over-month percentage incre'
+AN02,analytical,"Plan A costs 500 rupees per month flat. Plan B costs 200 rupees per month plus 10 rupees per GB used. At how many GB of monthly usage do the two plans cost the same? Think step by step, then end with a line of the form 'Final answer: <number>'.","**Plan A: 500 rupees per month flat**
+
+**Plan B: 200 rupees per month plus 10 rupees per GB used**
+
+To find the number of GB at which the two plans cost the same, we need to find the point at which the cost of Plan B is equal to the cost of Plan A.
+
+Let x be the number of GB used per month.
+
+Then, Plan A cost 500 = 500 rupees.
+
+Plan B cost = 200 + 10x.
+
+For the two plans to cost the same, we have:
+
+500 = 200 + 10x.
+
+Solving for x, we get:
+
+10x = 300.
+
+x = 30.
+
+Therefore, the number of GB of monthly usage at which the two plans cost the same is 30 GB.",5.574970466999957,194,34.798390618990425,False,True,30,PASS; 194 new tokens; 5.6s
+JS01,structured_output,"Return a JSON object with the keys ""name"" (string) and ""age"" (integer) for a person named Asha who is 30 years old. Output only the JSON.","```json
+{
+  ""name"": ""Asha"",
+  ""age"": 30
+}
+```",0.6613079250000737,26,39.31602664522295,False,True,"```json
+{
+  ""name"": ""Asha"",
+  ""age"": 30
+}
+```",PASS; 26 new tokens; 0.7s
+JS02,structured_output,"Return a JSON array of exactly 3 objects, each with the keys ""city"" and ""country"", for Paris, Tokyo and Cairo in that order. Output only the JSON.","```json
+[
+  {
+    ""city"": ""Paris""
+  },
+  {
+    ""city"": ""Tokyo""
+  },
+  {
+    ""city"": ""Cairo""
+  }
+]
+```",1.330813075999913,51,38.32243680178818,False,False,"```json
+[
+  {
+    ""city"": ""Paris""
+  },
+  {
+    ""city"": ""Tokyo""
+  },
+  {
+    ""city"": ""Cairo""
+  }
+]
+```","FAIL; 51 new tokens; 1.3s; extracted='```json\n[\n  {\n    ""city"": ""Paris""\n  },\n  {\n    ""city"": ""Toky'"
+AM01,ambiguous_misleading,What is the capital of Georgia?,"The capital of Georgia is Tbilisi. It is the political, economic, and cultural center of the country.",0.555653705000168,22,39.593005143362355,False,False,"The capital of Georgia is Tbilisi. It is the political, economic, and cultural center of the country.","FAIL; 22 new tokens; 0.6s; extracted='The capital of Georgia is Tbilisi. It is the political, econ'"
+AM02,ambiguous_misleading,"How many months of the year have 28 days? Think carefully, then give a short answer.","All months have 28 days at least, as they all have 28 days in a year.",0.5974496139999701,23,38.49697022316789,False,True,"All months have 28 days at least, as they all have 28 days in a year.",PASS; 23 new tokens; 0.6s

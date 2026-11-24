@@ -1,0 +1,415 @@
+[
+  {
+    "id": "GK03",
+    "split": "test",
+    "category": "general_knowledge",
+    "difficulty": "medium",
+    "prompt": "In which year did the Chernobyl nuclear power plant accident occur? Answer with just the name or number, no explanation.",
+    "reference": "1986",
+    "criteria": "Correct year 1986",
+    "variation": null,
+    "expected_behaviour": "Reference answer: 1986",
+    "raw_output": "Chernobyl Nuclear Power Plant accident occurred in 1986.",
+    "final_output": "Chernobyl Nuclear Power Plant accident occurred in 1986.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 32,
+    "new_tokens": 16,
+    "seconds": 0.5325319179999042,
+    "tokens_per_sec": 30.045147453495698,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676047325134277,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.680047512054443,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "Chernobyl Nuclear Power Plant accident occurred in 1986.",
+      "em": 0.0,
+      "f1": 0.2222222222222222,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": null
+    },
+    "observation": "PASS; 16 new tokens; 0.5s"
+  },
+  {
+    "id": "IF03",
+    "split": "test",
+    "category": "instruction_following",
+    "difficulty": "medium",
+    "prompt": "Write exactly two sentences explaining why sleep is important. Do not use the word 'health' (or any word containing it).",
+    "reference": "Two sentences, no 'health'",
+    "criteria": "Exactly 2 sentences; substring 'health' absent",
+    "variation": null,
+    "expected_behaviour": "Exactly two sentences about sleep, avoiding 'health'/'healthy'",
+    "raw_output": "Sleep is crucial for restoring and repairing the body's tissues and organs, ensuring optimal cognitive function and overall well-being.",
+    "final_output": "Sleep is crucial for restoring and repairing the body's tissues and organs, ensuring optimal cognitive function and overall well-being.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 34,
+    "new_tokens": 26,
+    "seconds": 1.4063063630001125,
+    "tokens_per_sec": 18.488147877346922,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676047325134277,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.680297374725342,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "Sleep is crucial for restoring and repairing the body's tissues and organs, ensuring optimal cognitive function and overall well-being.",
+      "em": null,
+      "f1": null,
+      "compliance": false,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {
+        "checks": {
+          "n_sentences": false,
+          "no_substr_health": true
+        }
+      },
+      "reasoning_correct": null
+    },
+    "observation": "FAIL; 26 new tokens; 1.4s; extracted=\"Sleep is crucial for restoring and repairing the body's tiss\""
+  },
+  {
+    "id": "LR03",
+    "split": "test",
+    "category": "logical_reasoning",
+    "difficulty": "medium",
+    "prompt": "All doctors in the clinic are tall. Priya is tall. Is Priya definitely a doctor in the clinic? Answer 'Yes' or 'No' first, then explain in one sentence.",
+    "reference": "No",
+    "criteria": "Affirming the consequent is invalid -> No",
+    "variation": null,
+    "expected_behaviour": "Reference answer: No",
+    "raw_output": "No. Priya is not a doctor in the clinic, as she is not a medical professional.",
+    "final_output": "No. Priya is not a doctor in the clinic, as she is not a medical professional.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 46,
+    "new_tokens": 20,
+    "seconds": 1.0170537860001332,
+    "tokens_per_sec": 19.664643380028064,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.681796550750732,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "no",
+      "em": 1.0,
+      "f1": 1.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": true
+    },
+    "observation": "PASS; 20 new tokens; 1.0s"
+  },
+  {
+    "id": "MR03",
+    "split": "test",
+    "category": "mathematical_reasoning",
+    "difficulty": "medium",
+    "prompt": "A train travels 180 km in 2.5 hours. What is its average speed in km/h? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "reference": "72",
+    "criteria": "Final numeric answer 72",
+    "variation": null,
+    "expected_behaviour": "Reference answer: 72",
+    "raw_output": "To calculate the average speed of the train in km/h, we can use the formula:\n\n**Average speed = Distance travelled / Time taken**\n\nIn this case, the distance travelled is 180 km, and the time taken is 2.5 hours. Therefore, the average speed of the train in km/h is:\n\n**Average speed = 180 km / 2.5 h = 72 km/h**\n\n**Final answer: 72**",
+    "final_output": "To calculate the average speed of the train in km/h, we can use the formula:\n\n**Average speed = Distance travelled / Time taken**\n\nIn this case, the distance travelled is 180 km, and the time taken is 2.5 hours. Therefore, the average speed of the train in km/h is:\n\n**Average speed = 180 km / 2.5 h = 72 km/h**\n\n**Final answer: 72**",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 55,
+    "new_tokens": 104,
+    "seconds": 3.3841915610000797,
+    "tokens_per_sec": 30.73112089708847,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676048278808594,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.682920932769775,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "72",
+      "em": 1.0,
+      "f1": 1.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": true
+    },
+    "observation": "PASS; 104 new tokens; 3.4s"
+  },
+  {
+    "id": "MS03",
+    "split": "test",
+    "category": "multi_step",
+    "difficulty": "hard",
+    "prompt": "A tank holds 600 litres and is 40% full. A pipe adds 25 litres per minute. How many minutes until the tank is completely full? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "reference": "14.4",
+    "criteria": "40% of 600 = 240; remaining 360; 360/25 = 14.4",
+    "variation": null,
+    "expected_behaviour": "Reference answer: 14.4",
+    "raw_output": "**Step 1**: Calculate the amount of water added in 1 minute. 25 litres per minute x 60 minutes = 1500 litres per minute.\n\n**Step 2**: Calculate the time taken to fill the tank. 600 litres / 1500 litres/minute = 0.4 hours.\n\n**Step 3**: Convert hours to minutes. 0.4 hours x 60 minutes/hour = 24 minutes.\n\n**Final answer: 24**",
+    "final_output": "**Step 1**: Calculate the amount of water added in 1 minute. 25 litres per minute x 60 minutes = 1500 litres per minute.\n\n**Step 2**: Calculate the time taken to fill the tank. 600 litres / 1500 litres/minute = 0.4 hours.\n\n**Step 3**: Convert hours to minutes. 0.4 hours x 60 minutes/hour = 24 minutes.\n\n**Final answer: 24**",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 66,
+    "new_tokens": 112,
+    "seconds": 2.927993323999999,
+    "tokens_per_sec": 38.251453335622436,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.67604923248291,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.68429708480835,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "24",
+      "em": 0.0,
+      "f1": 0.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": false
+    },
+    "observation": "FAIL; 112 new tokens; 2.9s; extracted='24'"
+  },
+  {
+    "id": "SU03",
+    "split": "test",
+    "category": "summarization",
+    "difficulty": "medium",
+    "prompt": "Summarize the following passage in one sentence of at most 25 words.\n\nPassage: Cities are often several degrees warmer than the countryside around them, an effect called the urban heat island. Dark roads and roofs absorb sunlight, concrete stores heat overnight, and there are fewer trees to provide shade and cool the air through evaporation. Planting trees, installing reflective roofs and adding green spaces can reduce the effect and lower summer energy use.",
+    "reference": "Cities run hotter than surroundings because dark surfaces and concrete trap heat, but trees and reflective roofs can cool them.",
+    "criteria": "<=25 words; covers urban heat, cause, mitigation",
+    "variation": null,
+    "expected_behaviour": "One concise sentence (<=25 words) covering urban heat, its cause and mitigation",
+    "raw_output": "Sure, here's a summary in one sentence:\n\nCities experience higher temperatures due to factors like dark surfaces, concrete, and limited vegetation, leading to increased energy consumption.",
+    "final_output": "Sure, here's a summary in one sentence:\n\nCities experience higher temperatures due to factors like dark surfaces, concrete, and limited vegetation, leading to increased energy consumption.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 95,
+    "new_tokens": 36,
+    "seconds": 0.9631236319999061,
+    "tokens_per_sec": 37.37837885386194,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.67604923248291,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.687920093536377,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "Sure, here's a summary in one sentence:\n\nCities experience higher temperatures due to factors like dark surfaces, concrete, and limited vegetation, leading to increased energy consumption.",
+      "em": null,
+      "f1": null,
+      "compliance": false,
+      "structured_valid": null,
+      "rouge": {
+        "rouge1": 0.22222222222222224,
+        "rouge2": 0.04651162790697675,
+        "rougeL": 0.22222222222222224
+      },
+      "details": {
+        "checks": {
+          "max_words": false
+        },
+        "group_hits": [
+          true,
+          true,
+          false
+        ]
+      },
+      "reasoning_correct": null
+    },
+    "observation": "FAIL; 36 new tokens; 1.0s; extracted=\"Sure, here's a summary in one sentence:\\n\\nCities experience h\""
+  },
+  {
+    "id": "CO03",
+    "split": "test",
+    "category": "coding",
+    "difficulty": "medium",
+    "prompt": "Write a Python function `second_largest(nums)` that returns the second largest DISTINCT value in a list of integers, or None if there are fewer than two distinct values. Return only the code in one ```python block.",
+    "reference": "def second_largest(nums): d=sorted(set(nums)); return d[-2] if len(d)>1 else None",
+    "criteria": "Passes 5 unit tests",
+    "variation": null,
+    "expected_behaviour": "Reference answer: def second_largest(nums): d=sorted(set(nums)); return d[-2] if len(d)>1 else None",
+    "raw_output": "```python\ndef second_largest(nums):\n  \"\"\"\n  Returns the second largest distinct value in a list of integers.\n\n  Args:\n    nums: A list of integers.\n\n  Returns:\n    The second largest distinct value in the list, or None if there are fewer than two distinct values.\n  \"\"\"\n\n  # Remove duplicate elements from the list.\n  unique_nums = list(set(nums))\n\n  # Return the second largest value in the list.\n  return max(unique_nums[-2:])\n```",
+    "final_output": "```python\ndef second_largest(nums):\n  \"\"\"\n  Returns the second largest distinct value in a list of integers.\n\n  Args:\n    nums: A list of integers.\n\n  Returns:\n    The second largest distinct value in the list, or None if there are fewer than two distinct values.\n  \"\"\"\n\n  # Remove duplicate elements from the list.\n  unique_nums = list(set(nums))\n\n  # Return the second largest value in the list.\n  return max(unique_nums[-2:])\n```",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 54,
+    "new_tokens": 117,
+    "seconds": 3.6090951129999667,
+    "tokens_per_sec": 32.41809825919129,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676048278808594,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.682796001434326,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "def second_largest(nums):\n  \"\"\"\n  Returns the second largest distinct value in a list of integers.\n\n  Args:\n    nums: A list of integers.\n\n  Returns:\n    The second largest distinct value in the list, or None if there are fewer than two distinct values.\n  \"\"\"\n\n  # Remove duplicate elements from the ",
+      "em": null,
+      "f1": null,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {
+        "passed": 0,
+        "total": 5,
+        "error": null
+      },
+      "reasoning_correct": null
+    },
+    "observation": "FAIL; 117 new tokens; 3.6s; extracted='def second_largest(nums):\\n  \"\"\"\\n  Returns the second largest'"
+  },
+  {
+    "id": "AN03",
+    "split": "test",
+    "category": "analytical",
+    "difficulty": "medium",
+    "prompt": "Dataset: 4, 8, 6, 5, 3, 9, 100. Is the mean or the median more representative of the typical value, and why? State the median value.",
+    "reference": "Median (6) because 100 is an outlier that inflates the mean",
+    "criteria": "Chooses median, states 6, justifies with outlier",
+    "variation": null,
+    "expected_behaviour": "Reference answer: Median (6) because 100 is an outlier that inflates the mean",
+    "raw_output": "The median is more representative of the typical value than the mean. The median is the middle value in the dataset when arranged in order from smallest to largest. In this case, the median is 5, which is the middle value in the dataset. The mean, on the other hand, is the average of all the values in the dataset, which is (4 + 8 + 6 + 5 + 3 + 9 + 100) / 8 = 55.\n\nTherefore, the median value is more representative of the typical value of the dataset, as it is the middle value in the dataset.",
+    "final_output": "The median is more representative of the typical value than the mean. The median is the middle value in the dataset when arranged in order from smallest to largest. In this case, the median is 5, which is the middle value in the dataset. The mean, on the other hand, is the average of all the values in the dataset, which is (4 + 8 + 6 + 5 + 3 + 9 + 100) / 8 = 55.\n\nTherefore, the median value is more representative of the typical value of the dataset, as it is the middle value in the dataset.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 55,
+    "new_tokens": 130,
+    "seconds": 3.3763228349998826,
+    "tokens_per_sec": 38.50342705750308,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676048278808594,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.682920932769775,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "The median is more representative of the typical value than the mean. The median is the middle value in the dataset when arranged in order from smallest to largest. In this case, the median is 5, whic",
+      "em": null,
+      "f1": null,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {
+        "group_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "reasoning_correct": true
+    },
+    "observation": "PASS; 130 new tokens; 3.4s"
+  },
+  {
+    "id": "JS03",
+    "split": "test",
+    "category": "structured_output",
+    "difficulty": "medium",
+    "prompt": "Produce a Markdown table with the columns Item, Qty, Price for: Pen 10 5; Book 2 120; Bag 1 450. Output only the table.",
+    "reference": "| Item | Qty | Price |",
+    "criteria": "Valid Markdown table, correct header and 3 correct rows, nothing else",
+    "variation": null,
+    "expected_behaviour": "Only a Markdown table with header Item|Qty|Price and the three rows",
+    "raw_output": "| Item | Qty | Price |\n|---|---|---|\n| Pen | 10 | Not Provided |\n| Book | 2 | 120 |\n| Bag | 1 | 450 |",
+    "final_output": "| Item | Qty | Price |\n|---|---|---|\n| Pen | 10 | Not Provided |\n| Book | 2 | 120 |\n| Bag | 1 | 450 |",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 51,
+    "new_tokens": 47,
+    "seconds": 1.2257250870000007,
+    "tokens_per_sec": 38.34465044281171,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.6824212074279785,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "| Item | Qty | Price |\n|---|---|---|\n| Pen | 10 | Not Provided |\n| Book | 2 | 120 |\n| Bag | 1 | 450 |",
+      "em": null,
+      "f1": null,
+      "compliance": true,
+      "structured_valid": true,
+      "rouge": null,
+      "details": {
+        "valid": true,
+        "schema_ok": true,
+        "values_ok": false,
+        "clean": true
+      },
+      "reasoning_correct": null
+    },
+    "observation": "FAIL; 47 new tokens; 1.2s; extracted='| Item | Qty | Price |\\n|---|---|---|\\n| Pen | 10 | Not Provid'"
+  },
+  {
+    "id": "AM03",
+    "split": "test",
+    "category": "ambiguous_misleading",
+    "difficulty": "hard",
+    "prompt": "A bat and a ball cost 1.10 dollars in total. The bat costs 1.00 dollar more than the ball. How much does the ball cost, in cents? Think step by step, then end with a line of the form 'Final answer: <number of cents>'.",
+    "reference": "5 cents",
+    "criteria": "Ball = 5 cents (intuitive wrong answer: 10)",
+    "variation": null,
+    "expected_behaviour": "Reference answer: 5 cents",
+    "raw_output": "Let x be the price of the ball in cents.\n\nThen the bat costs x + 1.00.\n\nThe total cost is 1.10, so we have:\n\nx + 1.00 = 1.10\n\nSubtracting 1.00 from both sides:\n\nx = 0.10\n\nTherefore, the ball costs 0.10 cents.",
+    "final_output": "Let x be the price of the ball in cents.\n\nThen the bat costs x + 1.00.\n\nThe total cost is 1.10, so we have:\n\nx + 1.00 = 1.10\n\nSubtracting 1.00 from both sides:\n\nx = 0.10\n\nTherefore, the ball costs 0.10 cents.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 71,
+    "new_tokens": 88,
+    "seconds": 2.268602881000106,
+    "tokens_per_sec": 38.79039418358029,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.67604923248291,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.684921741485596,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "0.1",
+      "em": 0.0,
+      "f1": 0.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": false
+    },
+    "observation": "FAIL; 88 new tokens; 2.3s; extracted='0.1'"
+  }
+]

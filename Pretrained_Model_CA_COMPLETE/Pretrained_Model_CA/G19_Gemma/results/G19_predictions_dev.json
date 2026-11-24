@@ -1,0 +1,830 @@
+[
+  {
+    "id": "GK01",
+    "split": "dev",
+    "category": "general_knowledge",
+    "difficulty": "easy",
+    "prompt": "What is the chemical symbol for gold? Answer with just the name or number, no explanation.",
+    "reference": "Au",
+    "criteria": "Correct symbol 'Au'",
+    "variation": null,
+    "expected_behaviour": "Reference answer: Au",
+    "raw_output": "The chemical symbol for gold is Au. It is an element in the periodic table with atomic number 79.",
+    "final_output": "The chemical symbol for gold is Au. It is an element in the periodic table with atomic number 79.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 28,
+    "new_tokens": 24,
+    "seconds": 0.6673217559998648,
+    "tokens_per_sec": 35.964659902388775,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676047325134277,
+      "reserved_gb": 4.7109375,
+      "peak_allocated_gb": 4.6795477867126465,
+      "peak_reserved_gb": 4.7109375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "The chemical symbol for gold is Au. It is an element in the periodic table with atomic number 79.",
+      "em": 0.0,
+      "f1": 0.11764705882352941,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": null
+    },
+    "observation": "PASS; 24 new tokens; 0.7s"
+  },
+  {
+    "id": "GK02",
+    "split": "dev",
+    "category": "general_knowledge",
+    "difficulty": "easy",
+    "prompt": "What is the capital city of Australia? Answer with just the name or number, no explanation.",
+    "reference": "Canberra",
+    "criteria": "Correct capital (common distractors: Sydney, Melbourne)",
+    "variation": null,
+    "expected_behaviour": "Reference answer: Canberra",
+    "raw_output": "The capital city of Australia is Canberra, which is located in the Australian Capital Territory.",
+    "final_output": "The capital city of Australia is Canberra, which is located in the Australian Capital Territory.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 28,
+    "new_tokens": 18,
+    "seconds": 0.462343379999993,
+    "tokens_per_sec": 38.93210280203487,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676047325134277,
+      "reserved_gb": 4.7109375,
+      "peak_allocated_gb": 4.6795477867126465,
+      "peak_reserved_gb": 4.7109375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "The capital city of Australia is Canberra, which is located in the Australian Capital Territory.",
+      "em": 0.0,
+      "f1": 0.14285714285714288,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": null
+    },
+    "observation": "PASS; 18 new tokens; 0.5s"
+  },
+  {
+    "id": "IF01",
+    "split": "dev",
+    "category": "instruction_following",
+    "difficulty": "easy",
+    "prompt": "List exactly three fruits, one per line, with no numbering, no bullets and no extra text.",
+    "reference": "Three lines, each a fruit name",
+    "criteria": "Exactly 3 non-empty lines; no digits/bullets; <=3 words per line",
+    "variation": null,
+    "expected_behaviour": "Exactly three short lines containing fruit names, no numbering/bullets/extra text",
+    "raw_output": "Sure, here are three fruits:\n\n- Apple\n- Banana\n- Strawberry",
+    "final_output": "Sure, here are three fruits:\n\n- Apple\n- Banana\n- Strawberry",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 29,
+    "new_tokens": 17,
+    "seconds": 0.44670455699997547,
+    "tokens_per_sec": 38.05647319599861,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676047325134277,
+      "reserved_gb": 4.7109375,
+      "peak_allocated_gb": 4.679672718048096,
+      "peak_reserved_gb": 4.7109375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "Sure, here are three fruits:\n\n- Apple\n- Banana\n- Strawberry",
+      "em": null,
+      "f1": null,
+      "compliance": false,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {
+        "checks": {
+          "n_lines": false,
+          "no_digits": true,
+          "no_bullets": false,
+          "line_max_words": false
+        }
+      },
+      "reasoning_correct": null
+    },
+    "observation": "FAIL; 17 new tokens; 0.4s; extracted='Sure, here are three fruits:\\n\\n- Apple\\n- Banana\\n- Strawberry'"
+  },
+  {
+    "id": "IF02",
+    "split": "dev",
+    "category": "instruction_following",
+    "difficulty": "medium",
+    "prompt": "Write exactly one sentence about the ocean without using the word 'the'.",
+    "reference": "One sentence, no word 'the'",
+    "criteria": "Exactly 1 sentence; word 'the' absent",
+    "variation": null,
+    "expected_behaviour": "A single sentence about the ocean that never uses the word 'the'",
+    "raw_output": "The vast expanse of the ocean stretches out, encompassing a myriad of mysteries and wonders.",
+    "final_output": "The vast expanse of the ocean stretches out, encompassing a myriad of mysteries and wonders.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 23,
+    "new_tokens": 18,
+    "seconds": 0.4551176600000417,
+    "tokens_per_sec": 39.5502121363481,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676047325134277,
+      "reserved_gb": 4.7109375,
+      "peak_allocated_gb": 4.679122447967529,
+      "peak_reserved_gb": 4.7109375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "The vast expanse of the ocean stretches out, encompassing a myriad of mysteries and wonders.",
+      "em": null,
+      "f1": null,
+      "compliance": false,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {
+        "checks": {
+          "n_sentences": true,
+          "no_word_the": false
+        }
+      },
+      "reasoning_correct": null
+    },
+    "observation": "FAIL; 18 new tokens; 0.5s; extracted='The vast expanse of the ocean stretches out, encompassing a '"
+  },
+  {
+    "id": "LR01",
+    "split": "dev",
+    "category": "logical_reasoning",
+    "difficulty": "easy",
+    "prompt": "All bloops are razzies. All razzies are lazzies. Are all bloops definitely lazzies? Answer 'Yes' or 'No' first, then explain in one sentence.",
+    "reference": "Yes",
+    "criteria": "Transitive syllogism -> Yes",
+    "variation": null,
+    "expected_behaviour": "Reference answer: Yes",
+    "raw_output": "Answer: No\n\nExplanation: The premise of the question is logically incorrect. Just because some bloops are razzies, it does not mean that all razzies are bloops.",
+    "final_output": "Answer: No\n\nExplanation: The premise of the question is logically incorrect. Just because some bloops are razzies, it does not mean that all razzies are bloops.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 51,
+    "new_tokens": 39,
+    "seconds": 0.9950445710001077,
+    "tokens_per_sec": 39.1942241952052,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.7109375,
+      "peak_allocated_gb": 4.6824212074279785,
+      "peak_reserved_gb": 4.7109375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "no",
+      "em": 0.0,
+      "f1": 0.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": false
+    },
+    "observation": "FAIL; 39 new tokens; 1.0s; extracted='no'"
+  },
+  {
+    "id": "LR02",
+    "split": "dev",
+    "category": "logical_reasoning",
+    "difficulty": "medium",
+    "prompt": "If it rains, the match is cancelled. The match was not cancelled. Can we conclude that it did not rain? Answer 'Yes' or 'No' first, then explain in one sentence.",
+    "reference": "Yes",
+    "criteria": "Modus tollens -> Yes",
+    "variation": null,
+    "expected_behaviour": "Reference answer: Yes",
+    "raw_output": "No.\n\nThe fact that the match was not cancelled means that it did not rain.",
+    "final_output": "No.\n\nThe fact that the match was not cancelled means that it did not rain.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 49,
+    "new_tokens": 19,
+    "seconds": 0.4841633749999801,
+    "tokens_per_sec": 39.24295182385653,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.7109375,
+      "peak_allocated_gb": 4.68217134475708,
+      "peak_reserved_gb": 4.7109375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "no",
+      "em": 0.0,
+      "f1": 0.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": false
+    },
+    "observation": "FAIL; 19 new tokens; 0.5s; extracted='no'"
+  },
+  {
+    "id": "MR01",
+    "split": "dev",
+    "category": "mathematical_reasoning",
+    "difficulty": "easy",
+    "prompt": "What is 15% of 240? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "reference": "36",
+    "criteria": "Final numeric answer 36",
+    "variation": null,
+    "expected_behaviour": "Reference answer: 36",
+    "raw_output": "Sure, here's the solution:\n\n15% of 240 = (0.15) * 240 = 36\n\nFinal answer: 36",
+    "final_output": "Sure, here's the solution:\n\n15% of 240 = (0.15) * 240 = 36\n\nFinal answer: 36",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 42,
+    "new_tokens": 41,
+    "seconds": 1.0507104170001185,
+    "tokens_per_sec": 39.02121777478806,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.7109375,
+      "peak_allocated_gb": 4.6812968254089355,
+      "peak_reserved_gb": 4.7109375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "36",
+      "em": 1.0,
+      "f1": 1.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": true
+    },
+    "observation": "PASS; 41 new tokens; 1.1s"
+  },
+  {
+    "id": "MR02",
+    "split": "dev",
+    "category": "mathematical_reasoning",
+    "difficulty": "easy",
+    "prompt": "Solve for x: 3x + 7 = 28. Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "reference": "7",
+    "criteria": "Final numeric answer 7",
+    "variation": null,
+    "expected_behaviour": "Reference answer: 7",
+    "raw_output": "3x + 7 = 28\n\n3x = 28 - 7\n\n3x = 21\n\nx = 7\n\nFinal answer: 7",
+    "final_output": "3x + 7 = 28\n\n3x = 28 - 7\n\n3x = 21\n\nx = 7\n\nFinal answer: 7",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 45,
+    "new_tokens": 38,
+    "seconds": 0.9947467409999717,
+    "tokens_per_sec": 38.200678055803834,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.7109375,
+      "peak_allocated_gb": 4.681671619415283,
+      "peak_reserved_gb": 4.7109375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "7",
+      "em": 1.0,
+      "f1": 1.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": true
+    },
+    "observation": "PASS; 38 new tokens; 1.0s"
+  },
+  {
+    "id": "MS01",
+    "split": "dev",
+    "category": "multi_step",
+    "difficulty": "easy",
+    "prompt": "A shop sells pens at 12 rupees each. Riya buys 7 pens and pays with a 100 rupee note. How many rupees of change does she get? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "reference": "16",
+    "criteria": "7*12=84; 100-84=16",
+    "variation": null,
+    "expected_behaviour": "Reference answer: 16",
+    "raw_output": "**Step 1:** Calculate the number of pens Riya bought: 7 pens\n\n**Step 2:** Calculate the number of rupees she paid for the pens: 12 rupees/pen * 7 pens = 84 rupees\n\n**Step 3:** Calculate the amount of change she gets: 100 rupees - 84 rupees = 16 rupees\n\n**Final answer: 16**",
+    "final_output": "**Step 1:** Calculate the number of pens Riya bought: 7 pens\n\n**Step 2:** Calculate the number of rupees she paid for the pens: 12 rupees/pen * 7 pens = 84 rupees\n\n**Step 3:** Calculate the amount of change she gets: 100 rupees - 84 rupees = 16 rupees\n\n**Final answer: 16**",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 67,
+    "new_tokens": 88,
+    "seconds": 2.810005917000126,
+    "tokens_per_sec": 31.316660035344707,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.67604923248291,
+      "reserved_gb": 4.712890625,
+      "peak_allocated_gb": 4.684422016143799,
+      "peak_reserved_gb": 4.712890625
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "16",
+      "em": 1.0,
+      "f1": 1.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": true
+    },
+    "observation": "PASS; 88 new tokens; 2.8s"
+  },
+  {
+    "id": "MS02",
+    "split": "dev",
+    "category": "multi_step",
+    "difficulty": "medium",
+    "prompt": "Tom is twice as old as Sam. In 6 years the sum of their ages will be 48. How old is Tom now? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "reference": "24",
+    "criteria": "s + 2s + 12 = 48 -> s=12, Tom=24",
+    "variation": null,
+    "expected_behaviour": "Reference answer: 24",
+    "raw_output": "Let x be Sam's age.\n\nThen, Tom's age is 2x.\n\nIn 6 years, Sam's age will be x + 6.\n\nIn 6 years, Tom's age will be 2x + 6.\n\nThe sum of their ages in 6 years will be x + 6 = 2x + 6 = 48.\n\nSolving for x, we get x = 18.\n\nTherefore, Sam's age is 18, and Tom's age is 2(18) = 36.\n\nFinal answer: Tom is 36 years old.",
+    "final_output": "Let x be Sam's age.\n\nThen, Tom's age is 2x.\n\nIn 6 years, Sam's age will be x + 6.\n\nIn 6 years, Tom's age will be 2x + 6.\n\nThe sum of their ages in 6 years will be x + 6 = 2x + 6 = 48.\n\nSolving for x, we get x = 18.\n\nTherefore, Sam's age is 18, and Tom's age is 2(18) = 36.\n\nFinal answer: Tom is 36 years old.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 59,
+    "new_tokens": 139,
+    "seconds": 3.566961302999971,
+    "tokens_per_sec": 38.96874347447922,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676048755645752,
+      "reserved_gb": 4.712890625,
+      "peak_allocated_gb": 4.683420658111572,
+      "peak_reserved_gb": 4.712890625
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "36",
+      "em": 0.0,
+      "f1": 0.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": false
+    },
+    "observation": "FAIL; 139 new tokens; 3.6s; extracted='36'"
+  },
+  {
+    "id": "SU01",
+    "split": "dev",
+    "category": "summarization",
+    "difficulty": "easy",
+    "prompt": "Summarize the following passage in one sentence of at most 25 words.\n\nPassage: Bees visit flowers to collect nectar and pollen for food. As they move from flower to flower, grains of pollen stick to their bodies and are carried to other plants, allowing those plants to produce seeds and fruit. Because many crops depend on this process, a decline in bee populations can reduce harvests and raise food prices.",
+    "reference": "Bees pollinate plants while feeding on nectar, so falling bee numbers threaten crop yields and food prices.",
+    "criteria": "<=25 words; mentions bees, pollination, crops/food",
+    "variation": null,
+    "expected_behaviour": "One concise sentence (<=25 words) covering bees, pollination and crop/food impact",
+    "raw_output": "Sure, here's a summary in one sentence:\n\nBees collect nectar and pollen from flowers to produce food for themselves and other plants.",
+    "final_output": "Sure, here's a summary in one sentence:\n\nBees collect nectar and pollen from flowers to produce food for themselves and other plants.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 91,
+    "new_tokens": 29,
+    "seconds": 0.758317869999928,
+    "tokens_per_sec": 38.24253805334003,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676048755645752,
+      "reserved_gb": 4.712890625,
+      "peak_allocated_gb": 4.68742036819458,
+      "peak_reserved_gb": 4.712890625
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "Sure, here's a summary in one sentence:\n\nBees collect nectar and pollen from flowers to produce food for themselves and other plants.",
+      "em": null,
+      "f1": null,
+      "compliance": true,
+      "structured_valid": null,
+      "rouge": {
+        "rouge1": 0.2631578947368421,
+        "rouge2": 0.0,
+        "rougeL": 0.21052631578947367
+      },
+      "details": {
+        "checks": {
+          "max_words": true
+        },
+        "group_hits": [
+          true,
+          true,
+          true
+        ]
+      },
+      "reasoning_correct": null
+    },
+    "observation": "PASS; 29 new tokens; 0.8s"
+  },
+  {
+    "id": "SU02",
+    "split": "dev",
+    "category": "summarization",
+    "difficulty": "medium",
+    "prompt": "Summarize the following passage in one sentence of at most 25 words.\n\nPassage: Many companies now allow employees to work from home several days a week. Supporters say this saves commuting time and lets people balance family duties, while critics worry that it weakens team bonds and makes it harder for new staff to learn from colleagues. Surveys of workers often show high satisfaction, but managers remain divided about its long-term effect on productivity.",
+    "reference": "Working from home saves time and improves balance, but critics fear weaker teamwork and managers are divided on productivity.",
+    "criteria": "<=25 words; covers remote work, benefits and concerns",
+    "variation": null,
+    "expected_behaviour": "One concise sentence (<=25 words) covering both benefits and concerns of remote work",
+    "raw_output": "Sure, here's a summary of the passage in one sentence:\n\nThe passage discusses the impact of remote work on company culture and employee satisfaction.",
+    "final_output": "Sure, here's a summary of the passage in one sentence:\n\nThe passage discusses the impact of remote work on company culture and employee satisfaction.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 96,
+    "new_tokens": 31,
+    "seconds": 0.8221154880000086,
+    "tokens_per_sec": 37.707597597285115,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676048755645752,
+      "reserved_gb": 4.712890625,
+      "peak_allocated_gb": 4.688045024871826,
+      "peak_reserved_gb": 4.712890625
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "Sure, here's a summary of the passage in one sentence:\n\nThe passage discusses the impact of remote work on company culture and employee satisfaction.",
+      "em": null,
+      "f1": null,
+      "compliance": true,
+      "structured_valid": null,
+      "rouge": {
+        "rouge1": 0.10256410256410256,
+        "rouge2": 0.0,
+        "rougeL": 0.05128205128205128
+      },
+      "details": {
+        "checks": {
+          "max_words": true
+        },
+        "group_hits": [
+          true,
+          true,
+          false
+        ]
+      },
+      "reasoning_correct": null
+    },
+    "observation": "FAIL; 31 new tokens; 0.8s; extracted=\"Sure, here's a summary of the passage in one sentence:\\n\\nThe \""
+  },
+  {
+    "id": "CO01",
+    "split": "dev",
+    "category": "coding",
+    "difficulty": "easy",
+    "prompt": "Write a Python function `is_palindrome(s)` that returns True if the string s reads the same forwards and backwards when case is ignored, otherwise False. Return only the code in one ```python block.",
+    "reference": "def is_palindrome(s): t=s.lower(); return t==t[::-1]",
+    "criteria": "Passes 5 unit tests",
+    "variation": null,
+    "expected_behaviour": "Reference answer: def is_palindrome(s): t=s.lower(); return t==t[::-1]",
+    "raw_output": "```python\ndef is_palindrome(s):\n    return s == s[::-1]\n```",
+    "final_output": "```python\ndef is_palindrome(s):\n    return s == s[::-1]\n```",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 51,
+    "new_tokens": 22,
+    "seconds": 0.5781742319998102,
+    "tokens_per_sec": 38.05081372081491,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.712890625,
+      "peak_allocated_gb": 4.6824212074279785,
+      "peak_reserved_gb": 4.712890625
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "def is_palindrome(s):\n    return s == s[::-1]",
+      "em": null,
+      "f1": null,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {
+        "passed": 3,
+        "total": 5,
+        "error": null
+      },
+      "reasoning_correct": null
+    },
+    "observation": "FAIL; 22 new tokens; 0.6s; extracted='def is_palindrome(s):\\n    return s == s[::-1]'"
+  },
+  {
+    "id": "CO02",
+    "split": "dev",
+    "category": "coding",
+    "difficulty": "easy",
+    "prompt": "Write a Python function `sum_even(nums)` that returns the sum of the even integers in the list nums (0 for an empty list). Return only the code in one ```python block.",
+    "reference": "def sum_even(nums): return sum(n for n in nums if n%2==0)",
+    "criteria": "Passes 4 unit tests",
+    "variation": null,
+    "expected_behaviour": "Reference answer: def sum_even(nums): return sum(n for n in nums if n%2==0)",
+    "raw_output": "```python\ndef sum_even(nums):\n  sum = 0\n  for num in nums:\n    if num % 2 == 0:\n      sum += num\n  return sum\n```",
+    "final_output": "```python\ndef sum_even(nums):\n  sum = 0\n  for num in nums:\n    if num % 2 == 0:\n      sum += num\n  return sum\n```",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 49,
+    "new_tokens": 46,
+    "seconds": 1.2057565109998905,
+    "tokens_per_sec": 38.15032270640932,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.712890625,
+      "peak_allocated_gb": 4.68217134475708,
+      "peak_reserved_gb": 4.712890625
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "def sum_even(nums):\n  sum = 0\n  for num in nums:\n    if num % 2 == 0:\n      sum += num\n  return sum",
+      "em": null,
+      "f1": null,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {
+        "passed": 4,
+        "total": 4,
+        "error": null
+      },
+      "reasoning_correct": null
+    },
+    "observation": "PASS; 46 new tokens; 1.2s"
+  },
+  {
+    "id": "AN01",
+    "split": "dev",
+    "category": "analytical",
+    "difficulty": "medium",
+    "prompt": "A store's monthly sales were 120 in January, 150 in February and 135 in March. Which month had the largest month-over-month percentage increase, and what was that percentage?",
+    "reference": "February, 25%",
+    "criteria": "Names February and 25%",
+    "variation": null,
+    "expected_behaviour": "Reference answer: February, 25%",
+    "raw_output": "The month with the largest month-over-month percentage increase was March, with a 15% increase.",
+    "final_output": "The month with the largest month-over-month percentage increase was March, with a 15% increase.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 56,
+    "new_tokens": 24,
+    "seconds": 0.6253723160000391,
+    "tokens_per_sec": 38.37713852366708,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.712890625,
+      "peak_allocated_gb": 4.683045864105225,
+      "peak_reserved_gb": 4.712890625
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "The month with the largest month-over-month percentage increase was March, with a 15% increase.",
+      "em": null,
+      "f1": null,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {
+        "group_hits": [
+          false,
+          false
+        ]
+      },
+      "reasoning_correct": false
+    },
+    "observation": "FAIL; 24 new tokens; 0.6s; extracted='The month with the largest month-over-month percentage incre'"
+  },
+  {
+    "id": "AN02",
+    "split": "dev",
+    "category": "analytical",
+    "difficulty": "medium",
+    "prompt": "Plan A costs 500 rupees per month flat. Plan B costs 200 rupees per month plus 10 rupees per GB used. At how many GB of monthly usage do the two plans cost the same? Think step by step, then end with a line of the form 'Final answer: <number>'.",
+    "reference": "30",
+    "criteria": "200 + 10x = 500 -> x = 30",
+    "variation": null,
+    "expected_behaviour": "Reference answer: 30",
+    "raw_output": "**Plan A: 500 rupees per month flat**\n\n**Plan B: 200 rupees per month plus 10 rupees per GB used**\n\nTo find the number of GB at which the two plans cost the same, we need to find the point at which the cost of Plan B is equal to the cost of Plan A.\n\nLet x be the number of GB used per month.\n\nThen, Plan A cost 500 = 500 rupees.\n\nPlan B cost = 200 + 10x.\n\nFor the two plans to cost the same, we have:\n\n500 = 200 + 10x.\n\nSolving for x, we get:\n\n10x = 300.\n\nx = 30.\n\nTherefore, the number of GB of monthly usage at which the two plans cost the same is 30 GB.",
+    "final_output": "**Plan A: 500 rupees per month flat**\n\n**Plan B: 200 rupees per month plus 10 rupees per GB used**\n\nTo find the number of GB at which the two plans cost the same, we need to find the point at which the cost of Plan B is equal to the cost of Plan A.\n\nLet x be the number of GB used per month.\n\nThen, Plan A cost 500 = 500 rupees.\n\nPlan B cost = 200 + 10x.\n\nFor the two plans to cost the same, we have:\n\n500 = 200 + 10x.\n\nSolving for x, we get:\n\n10x = 300.\n\nx = 30.\n\nTherefore, the number of GB of monthly usage at which the two plans cost the same is 30 GB.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 76,
+    "new_tokens": 194,
+    "seconds": 5.574970466999957,
+    "tokens_per_sec": 34.798390618990425,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676050186157227,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.685546398162842,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "30",
+      "em": 1.0,
+      "f1": 1.0,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {},
+      "reasoning_correct": true
+    },
+    "observation": "PASS; 194 new tokens; 5.6s"
+  },
+  {
+    "id": "JS01",
+    "split": "dev",
+    "category": "structured_output",
+    "difficulty": "easy",
+    "prompt": "Return a JSON object with the keys \"name\" (string) and \"age\" (integer) for a person named Asha who is 30 years old. Output only the JSON.",
+    "reference": "{\"name\": \"Asha\", \"age\": 30}",
+    "criteria": "Valid JSON object, correct keys and values, no extra prose",
+    "variation": null,
+    "expected_behaviour": "Only a JSON object {\"name\": \"Asha\", \"age\": 30}",
+    "raw_output": "```json\n{\n  \"name\": \"Asha\",\n  \"age\": 30\n}\n```",
+    "final_output": "```json\n{\n  \"name\": \"Asha\",\n  \"age\": 30\n}\n```",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 47,
+    "new_tokens": 26,
+    "seconds": 0.6613079250000737,
+    "tokens_per_sec": 39.31602664522295,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.681921482086182,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "```json\n{\n  \"name\": \"Asha\",\n  \"age\": 30\n}\n```",
+      "em": null,
+      "f1": null,
+      "compliance": true,
+      "structured_valid": true,
+      "rouge": null,
+      "details": {
+        "valid": true,
+        "schema_ok": true,
+        "values_ok": true,
+        "clean": true
+      },
+      "reasoning_correct": null
+    },
+    "observation": "PASS; 26 new tokens; 0.7s"
+  },
+  {
+    "id": "JS02",
+    "split": "dev",
+    "category": "structured_output",
+    "difficulty": "medium",
+    "prompt": "Return a JSON array of exactly 3 objects, each with the keys \"city\" and \"country\", for Paris, Tokyo and Cairo in that order. Output only the JSON.",
+    "reference": "[{\"city\":\"Paris\",\"country\":\"France\"},{\"city\":\"Tokyo\",\"country\":\"Japan\"},{\"city\":\"Cairo\",\"country\":\"Egypt\"}]",
+    "criteria": "Valid JSON array of 3 correct objects in order",
+    "variation": null,
+    "expected_behaviour": "Only a JSON array of three city/country objects in the requested order",
+    "raw_output": "```json\n[\n  {\n    \"city\": \"Paris\"\n  },\n  {\n    \"city\": \"Tokyo\"\n  },\n  {\n    \"city\": \"Cairo\"\n  }\n]\n```",
+    "final_output": "```json\n[\n  {\n    \"city\": \"Paris\"\n  },\n  {\n    \"city\": \"Tokyo\"\n  },\n  {\n    \"city\": \"Cairo\"\n  }\n]\n```",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 45,
+    "new_tokens": 51,
+    "seconds": 1.330813075999913,
+    "tokens_per_sec": 38.32243680178818,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.6760478019714355,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.681671619415283,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "```json\n[\n  {\n    \"city\": \"Paris\"\n  },\n  {\n    \"city\": \"Tokyo\"\n  },\n  {\n    \"city\": \"Cairo\"\n  }\n]\n```",
+      "em": null,
+      "f1": null,
+      "compliance": true,
+      "structured_valid": true,
+      "rouge": null,
+      "details": {
+        "valid": true,
+        "schema_ok": false,
+        "values_ok": false,
+        "clean": true
+      },
+      "reasoning_correct": null
+    },
+    "observation": "FAIL; 51 new tokens; 1.3s; extracted='```json\\n[\\n  {\\n    \"city\": \"Paris\"\\n  },\\n  {\\n    \"city\": \"Toky'"
+  },
+  {
+    "id": "AM01",
+    "split": "dev",
+    "category": "ambiguous_misleading",
+    "difficulty": "medium",
+    "prompt": "What is the capital of Georgia?",
+    "reference": "Ambiguous: country (Tbilisi) vs US state (Atlanta)",
+    "criteria": "Asks which Georgia OR answers for both readings",
+    "variation": null,
+    "expected_behaviour": "Either asks which Georgia is meant or gives both Tbilisi (country) and Atlanta (US state)",
+    "raw_output": "The capital of Georgia is Tbilisi. It is the political, economic, and cultural center of the country.",
+    "final_output": "The capital of Georgia is Tbilisi. It is the political, economic, and cultural center of the country.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 16,
+    "new_tokens": 22,
+    "seconds": 0.555653705000168,
+    "tokens_per_sec": 39.593005143362355,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676047325134277,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.679070949554443,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": false,
+      "extracted": "The capital of Georgia is Tbilisi. It is the political, economic, and cultural center of the country.",
+      "em": null,
+      "f1": null,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {
+        "asks_or_flags_ambiguity": false,
+        "covers_all_readings": false
+      },
+      "reasoning_correct": false
+    },
+    "observation": "FAIL; 22 new tokens; 0.6s; extracted='The capital of Georgia is Tbilisi. It is the political, econ'"
+  },
+  {
+    "id": "AM02",
+    "split": "dev",
+    "category": "ambiguous_misleading",
+    "difficulty": "medium",
+    "prompt": "How many months of the year have 28 days? Think carefully, then give a short answer.",
+    "reference": "12 (all months)",
+    "criteria": "Answers 12 / all months (trap: February only)",
+    "variation": null,
+    "expected_behaviour": "Reference answer: 12 (all months)",
+    "raw_output": "All months have 28 days at least, as they all have 28 days in a year.",
+    "final_output": "All months have 28 days at least, as they all have 28 days in a year.",
+    "reasoning_chars": 0,
+    "think_closed": null,
+    "input_tokens": 30,
+    "new_tokens": 23,
+    "seconds": 0.5974496139999701,
+    "tokens_per_sec": 38.49697022316789,
+    "hit_max_tokens": false,
+    "mem": {
+      "allocated_gb": 4.676047325134277,
+      "reserved_gb": 4.71484375,
+      "peak_allocated_gb": 4.679797649383545,
+      "peak_reserved_gb": 4.71484375
+    },
+    "eval": {
+      "correct": true,
+      "extracted": "All months have 28 days at least, as they all have 28 days in a year.",
+      "em": null,
+      "f1": null,
+      "compliance": null,
+      "structured_valid": null,
+      "rouge": null,
+      "details": {
+        "group_hits": [
+          true
+        ]
+      },
+      "reasoning_correct": true
+    },
+    "observation": "PASS; 23 new tokens; 0.6s"
+  }
+]
